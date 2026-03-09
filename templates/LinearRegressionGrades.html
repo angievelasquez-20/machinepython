@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>linear regression to predictGrades</title>
+</head>
+<body>
+    <h1> Linear Regression : Calculate Grade Depends on study</h1>
+    <from method="post">
+        <label for ="hours"> Study Hours </label>
+        <input type ="number" name="hours" required>
+        <button type = "sumbit">predict </button>
+    </from>
+     {% if result is not none %}
+     <h2> Estimated Grade: {{result}}</h2>
+     {% endif %}
+
+</body>
+</html>
