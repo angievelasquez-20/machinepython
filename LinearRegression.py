@@ -19,3 +19,14 @@ model.fit(x , y)
 def calculatorGrade(hours):
     result = model.predict([[hours]])[0]
     return result
+
+def generate_plot(hours, prediction):
+    plt.figure()
+    plt.scatter(df['Study Hours'], df['Final Grade'])
+    plt.plot(df['Study Hours'], model.predict(x), color='red')
+    plt.scatter([hours], [prediction], color='green', marker='x', s=100)
+    plt.xlabel('Study Hours')
+    plt.ylabel('Final Grade')
+    plt.title('Linear Regression: Study Hours vs Final Grade')
+    plt.savefig('static/plot.png')
+    plt.close()
