@@ -1,4 +1,5 @@
 from flask import Flask , render_template, request
+from sklearn.linear_model import LogisticRegression
 import LinearRegression
 
 app = Flask(__name__)
@@ -19,3 +20,24 @@ def calculatorGrade():
         hours = float (request.form['hours'])
         calculateResult = LinearRegression.calculatorGrade(hours)
     return render_template('LinearRegressionGrades.html', result = calculateResult)
+
+@app.route('/logisticRegression/', methods=["GET", "POST"])
+def predictPurchase():
+    calculateResult = None
+    
+    if request.method == "POST":
+        age = float(request.form['age'])
+        income = float(request.form['income'])
+        visits = float(request.form['visits'])
+        time = float(request.form['time'])
+        purchases = float(request.form['purchases'])
+        discount = float(request.form['discount'])
+
+        prediction = LogisticRegression.predict_purchase(age, income, visits, time, purchases, discount)
+        
+        if prediction == 1:
+            calculateResult = "Will Purchase"
+        else:
+            calculateResult = "Will Not Purchase"
+
+    return render_template('LogisticRegression.html', result=calculateResult)
