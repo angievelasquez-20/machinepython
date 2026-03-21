@@ -17,6 +17,10 @@ def home():
 def fisrtPage():
     return render_template('index.html')
 
+@app.route('/secondPage')
+def actividadE():
+    return render_template('actividadE.html')
+
 @app.route('/linearRegresion/', methods = ["GET","POST"])
 def calculatorGrade():
     calculateResult = None 
