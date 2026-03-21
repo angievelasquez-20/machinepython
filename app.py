@@ -1,8 +1,12 @@
 from flask import Flask , render_template, request
-from sklearn.linear_model import LogisticRegression
 import LinearRegression
 
 app = Flask(__name__)
+
+# Función de predicción sencilla (reemplaza esto por un modelo real si lo tienes)
+def predict_purchase(age, income, visits, time, purchases, discount):
+    score = age * 0.05 + income * 0.01 + visits * 0.2 + time * 0.1 + purchases * 0.4 - discount * 0.3
+    return 1 if score >= 10 else 0
 
 @app.route('/')
 def home():
@@ -12,6 +16,10 @@ def home():
 @app.route('/FirstPage')
 def fisrtPage():
     return render_template('index.html')
+
+@app.route('/secondPage')
+def actividadE():
+    return render_template('actividadE.html')
 
 @app.route('/linearRegresion/', methods = ["GET","POST"])
 def calculatorGrade():
@@ -33,7 +41,7 @@ def predictPurchase():
         purchases = float(request.form['purchases'])
         discount = float(request.form['discount'])
 
-        prediction = LogisticRegression.predict_purchase(age, income, visits, time, purchases, discount)
+        prediction = predict_purchase(age, income, visits, time, purchases, discount)
         
         if prediction == 1:
             calculateResult = "Will Purchase"
