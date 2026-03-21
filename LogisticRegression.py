@@ -35,7 +35,6 @@ model.fit(X, y)
 def predict_purchase(age, income, visits, time, purchases, discount):
     prob = model.predict_proba([[age, income, visits, time, purchases, discount]])[0][1]
     return prob
-<<<<<<< HEAD
 
 def generate_plot(age, income, visits, time, purchases, discount):
     ages = list(range(18, 81))  # assume age range 18-80
@@ -51,5 +50,4 @@ def generate_plot(age, income, visits, time, purchases, discount):
     plt.title('Logistic Regression: Probability vs Age')
     plt.savefig('static/logistic_plot.png')
     plt.close()
-=======
->>>>>>> 3e9bc723a524ccb35aa5141338b7fe1ca9dee8ac
+
