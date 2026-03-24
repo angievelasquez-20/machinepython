@@ -17,6 +17,10 @@ def fisrtPage():
 def actividadE():
     return render_template('caso1.html')
 
+@app.route('/thirdPage')
+def caso3():
+    return render_template('caso3.html')
+
 @app.route('/linearRegresion/', methods = ["GET","POST"])
 def calculatorGrade():
     calculateResult = None 
