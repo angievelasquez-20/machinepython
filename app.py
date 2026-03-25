@@ -11,7 +11,7 @@ def home():
 
 @app.route('/FirstPage')
 def fisrtPage():
-    return render_template('index.html')
+    return render_template('caso2.html')
 
 @app.route('/secondPage')
 def actividadE():
