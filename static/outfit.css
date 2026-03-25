@@ -1,0 +1,38 @@
+        :root {
+            --primary: #041e39;
+            --accent: #4bc2c2;
+            --bg: #f8f9fa;
+            --text: #230725;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--bg);
+        }
+        header {
+            text-align: center;
+            padding: 60px 30px;
+            background: linear-gradient(135deg, #000000 0%, #210d0d 100%);
+            color: rgb(255, 255, 255);
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .diseño {
+            background: #9b0202;
+            color: #aeff01;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .Contexts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 768px) { .main-grid { grid-template-columns: 1fr; } }
