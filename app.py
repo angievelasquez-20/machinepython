@@ -1,4 +1,5 @@
 from flask import Flask , render_template, request
+import LinearRegressionCalories as calories_model
 import LinearRegression
 import LogisticRegression
 
@@ -11,19 +12,15 @@ def home():
 
 @app.route('/FirstPage')
 def fisrtPage():
-    return render_template('caso1.html')
+    return render_template('index.html')
 
 @app.route('/secondPage')
 def actividadE():
-    return render_template('caso2.html')
+    return render_template('caso1.html')
 
 @app.route('/thirdPage')
 def caso3():
     return render_template('caso3.html')
-
-@app.route('/FourPage')
-def fourPage():
-    return render_template('caso4.html')
 
 @app.route('/linearRegresion/', methods = ["GET","POST"])
 def calculatorGrade():
@@ -61,6 +58,14 @@ def predictPurchase():
 
     return render_template('LogisticRegression.html', result=calculateResult, plot_url=plot_url)
 
-@app.route('/housePrice')
-def housePrice():
-    return render_template('housePrice.html')
+@app.route('/linearRegresionCalories', methods=['GET', 'POST'])
+def calories():
+    result = None
+
+    if request.method == 'POST':
+        duration = float(request.form['duration'])
+        intensity = float(request.form['intensity'])
+
+        result = round(calories_model.calculateCalories(duration, intensity), 2)
+
+    return render_template('LinearRegressionCalories.html', result=result)
