@@ -65,6 +65,7 @@ def predictPurchase():
 @app.route('/linearRegresionCalories', methods=['GET', 'POST'])
 def calories():
     result = None
+    plot_url = None
 
     if request.method == 'POST':
         duration = float(request.form['duration'])
@@ -72,4 +73,8 @@ def calories():
 
         result = round(calories_model.calculateCalories(duration, intensity), 2)
 
-    return render_template('LinearRegressionCalories.html', result=result)
+        # Generate plot
+        calories_model.generate_plot(duration, intensity, result)
+        plot_url = "plot.png"
+
+    return render_template('LinearRegressionCalories.html', result=result, plot_url=plot_url)
