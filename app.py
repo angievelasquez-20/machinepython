@@ -25,6 +25,11 @@ def caso3():
 def fourPage():
     return render_template('caso4.html')
 
+@app.route('/supervicedLearning')
+def supervicedLearning():
+    return render_template('supervisedLearning.html')
+
+
 @app.route('/linearRegresion/', methods = ["GET","POST"])
 def calculatorGrade():
     calculateResult = None 
