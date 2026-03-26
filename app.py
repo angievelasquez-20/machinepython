@@ -11,15 +11,19 @@ def home():
 
 @app.route('/FirstPage')
 def fisrtPage():
-    return render_template('index.html')
+    return render_template('caso1.html')
 
 @app.route('/secondPage')
 def actividadE():
-    return render_template('caso1.html')
+    return render_template('caso2.html')
 
 @app.route('/thirdPage')
 def caso3():
     return render_template('caso3.html')
+
+@app.route('/FourPage')
+def fourPage():
+    return render_template('caso4.html')
 
 @app.route('/linearRegresion/', methods = ["GET","POST"])
 def calculatorGrade():
