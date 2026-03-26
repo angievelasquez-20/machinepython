@@ -60,3 +60,7 @@ def predictPurchase():
         plot_url = 'logistic_plot.png'
 
     return render_template('LogisticRegression.html', result=calculateResult, plot_url=plot_url)
+
+@app.route('/housePrice')
+def housePrice():
+    return render_template('housePrice.html')
