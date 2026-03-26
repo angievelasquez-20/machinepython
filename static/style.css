@@ -146,6 +146,34 @@ p {
     color: var(--text);
 }
 
+.dropdown .btn {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.dropdown .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px var(--shadow-hover);
+}
+
+.dropdown-menu {
+    border-radius: 8px;
+    margin-top: 8px;
+}
+
+.dropdown-item {
+    padding: 12px 20px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: var(--primary-light);
+    color: white;
+}
+
 .badge {
     background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
     color: white;
