@@ -3,121 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Machine Learning</title>
-
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="{{url_for('static', filename='outfit.css')}}">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 </head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<body style = "background-color: #45c6f5;"> </body>
+<div class="text-bg-primary p-3"><h1> First Page </h1></div>
+<div class="text-bg-info p-3"><p> Machine Learning Class  </p> <p> Use case</p></div>
+<div class="card text-bg-primary mb-3" style="max-width: 40rem;">
+  <div class="card-header">Fraud Detection</div>
+  <div class="card-body">
+    <p class="card-text">Machine Learning is widely used in banking systems to detect fraudulent transactions.
+The model analyzes patterns in user behavior, such as location, spending habits, and transaction frequency.
 
-<body class="bg-dark text-light">
-
-<header class="text-center py-4" style="background: linear-gradient(90deg, #198754, #0dcaf0);">
-<h1 class="fw-bold">Machine Learning & Fraud Detection</h1>
-</header>
-
-<div class="container py-4">
-        
-    <p class="fs-4 text-secondary">
-      Fraud Detection is a Machine Learning use case focused on identifying
-      suspicious or fraudulent transactions in financial systems. By analyzing
-      patterns in transaction data, the system can detect unusual behavior and
-      prevent financial losses in real time.
-    </p>
-</div>
-
-<h4 class="text-center text-info">System Flow</h4>
-
-<div class="diseño bg-secondary bg-opacity-10 rounded p-3">
-  <div class="container text-center">
-    <div class="row align-items-start">
-      <div class="col text-warning fw-bold">
-        Transaction Data
-      </div>
-      <div class="col text-primary fw-bold">
-        Model
-      </div>
-      <div class="col text-success fw-bold">
-        Prediction
-      </div>
-      <div class="col text-danger fw-bold">
-        Action
-      </div>
-    </div>
+If a transaction looks unusual (for example, a large purchase in another country), the system flags it as suspicious or blocks it automatically.</p>
   </div>
+  
+  <img src="/static/fraude.jpg" class="rounded mx-auto d-block" alt="...">
+
 </div>
-
-<ul class="text-light">
-  <li><strong>Transaction Data:</strong> Information such as amount, location, time, and user behavior.</li>
-  <li><strong>Model:</strong> Learns patterns from normal and fraudulent transactions.</li>
-  <li><strong>Prediction:</strong> Classifies transactions as normal or suspicious.</li>
-  <li><strong>Action:</strong> Blocks the transaction or sends an alert to the user.</li>
-</ul>
-
-<h4 class="text-center text-info">Critical Components:</h4>
-
-<div class="diseño bg-secondary bg-opacity-10 rounded p-3">
-  <div class="container text-center">
-    <div class="row align-items-start">
-      <div class="col text-warning fw-bold">
-        Historical Data
-      </div>
-      <div class="col text-primary fw-bold">
-        Features
-      </div>
-      <div class="col text-success fw-bold">
-        Model
-      </div>
-      <div class="col text-danger fw-bold">
-        Output
-      </div>
-    </div>
-  </div>
-</div>
-
-<ul class="text-light">
-  <li><strong>Historical Data:</strong> Past transactions labeled as fraud or legitimate.</li>
-  <li><strong>Features:</strong> Variables like transaction amount, frequency, and location.</li>
-  <li><strong>Model:</strong> Machine Learning algorithms (classification models).</li>
-  <li><strong>Output:</strong> Probability of fraud or risk score.</li>
-</ul>
-
-<h3 class="text-center text-success">Example</h3>
-<p class="fs-4 text-secondary">
-  If a user suddenly makes a large transaction in another country, the model
-  can detect this as unusual behavior and flag it as potential fraud.
-</p>
-
-<h4 class="text-center text-info">Context: Type of Learning</h4>
-
-<ul class="text-light">
-    <li><strong>Supervised Learning:</strong> Uses labeled data (fraud / not fraud).</li>
-    <li><strong>Unsupervised Learning:</strong> Detects anomalies in transaction patterns.</li>
-</ul>
-
-<h3 class="text-center text-success">Applications:</h3>
-
-<p class="fs-4 text-secondary">
-  Fraud detection is widely used in banking and e-commerce. It helps financial
-  institutions prevent credit card fraud, detect suspicious transactions, and
-  protect users' accounts. It is also used in insurance to detect false claims
-  and in online platforms to prevent identity theft.
-</p>
-
-<h4 class="text-center">
- 
- <small class="text-info">“Fraud detection uses machine learning to identify
-   suspicious transactions and prevent financial losses.”</small>
-</h4>
-
-<div class="container mt-4 mb-5 text-center">
-    <button onclick="window.location.href='/'" class="btn btn-success mx-2">Back home</button>
-    <button onclick="window.location.href='/FirstPage'" class="btn btn-warning mx-2">Previous page</button>
-    <button onclick="window.location.href='/thirdPage'" class="btn btn-danger mx-2">Next page</button>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <button onclick="window.location.href='/'" class="btn btn-primary">Back home</button>
+    <button onclick="window.location.href='/'" class="btn btn-primary">previous page</button>
+    <button onclick="window.location.href='/secondPage'" class="btn btn-secondary">Next page</button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script> 
 </body>
 
 </html>

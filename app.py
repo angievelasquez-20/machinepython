@@ -22,6 +22,10 @@ def actividadE():
 def caso3():
     return render_template('caso3.html')
 
+@app.route('/fourPage')
+def caso4():
+    return render_template('caso4.html')
+
 @app.route('/linearRegresion/', methods = ["GET","POST"])
 def calculatorGrade():
     calculateResult = None 

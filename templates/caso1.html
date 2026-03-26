@@ -3,41 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deep Dive: Reinforcement Learning</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Machine Learning Dashboard</title>
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
 
-<header>
-    <h1>Machine Learning & Reinforcement Learning</h1>
-</header>
+    <header>
+        <h1>Machine Learning Use Cases</h1>
+        <p class="fs-5 mt-2">Explora ejemplos de regresión lineal, regresión logística y mantenimiento predictivo.</p>
+    </header>
 
-<section class="card highlight-rl">
-    <h2>Reinforcement Learning (RL)</h2>
-    <p>Unlike other methods, RL does not require prior labeled data. The system learns through <strong>direct interaction</strong> with an environment.</p>
+    <div class="main-grid">
+        <div class="card highlight-rl">
+            <h2 class="badge">Inicio de Cursos</h2>
+            <p>La plataforma muestra ejemplos de aplicación y casos de uso de Machine Learning en entornos reales.</p>
+        </div>
 
-    <div class="concept-box">
-        <div>🤖<br>Agent</div>
-        <div>➡️ Action ➡️</div>
-        <div>🌍<br>Environment</div>
-        <div>⬅️ Reward ⬅️</div>
+        <div class="card">
+            <h3>Fraud Detection</h3>
+            <p>Machine Learning se usa en banca para detectar transacciones fraudulentas analizando comportamientos atípicos.</p>
+            <img src="/static/fraude.jpg" class="img-fluid rounded mb-3" alt="Fraud Detection">
+            <p>Se emplean técnicas de clasificación y detección de anomalías para disminución de pérdidas y alertas en tiempo real.</p>
+        </div>
+
+        <div class="card">
+            <h3>Acceso rápido</h3>
+            <ul class="list-unstyled">
+                <li>✅ <strong>Inicio:</strong> Resumen del curso</li>
+                <li>✅ <strong>Linear Regression:</strong> Pronóstico de notas</li>
+                <li>✅ <strong>Logistic Regression:</strong> Predicción de compras</li>
+                <li>✅ <strong>Predictive Maintenance:</strong> Detección de fallas</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Ejemplo en 1 línea</h3>
+            <div class="code-block">from sklearn.linear_model import LinearRegression</div>
+        </div>
     </div>
 
-    <h3>Critical Components:</h3>
-    <ul>
-        <li><strong>State:</strong> The current situation the agent perceives from the environment.</li>
-        <li><strong>Action:</strong> What the agent decides to do based on its policy.</li>
-        <li><strong>Reward:</strong> The scalar feedback it receives (positive or negative).</li>
-        <li><strong>Policy:</strong> The strategy the agent follows to decide the next action.</li>
-    </ul>
-
-    <h3>The Bellman Equation (Simplified):</h3>
-    <div class="formula">
-        $V(s) = \max_a (R(s, a) + \gamma V(s'))$
+    <div class="container mt-4 mb-5">
+        <button onclick="window.location.href='/'" class="btn btn-primary">Home</button>
+        <button onclick="window.location.href='/secondPage'" class="btn btn-secondary">Next page</button>
     </div>
-    <p><small>Where the value of a state depends on the immediate reward plus the discounted future value ($\gamma$).</small></p>
-</section>
 
 <div class="main-grid">
     <section class="card">
@@ -85,6 +94,6 @@
     <button onclick="window.location.href='/secondPage'" class="btn btn-secondary">Next page</button>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
