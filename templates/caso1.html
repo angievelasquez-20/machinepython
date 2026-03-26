@@ -48,6 +48,52 @@
         <button onclick="window.location.href='/secondPage'" class="btn btn-secondary">Next page</button>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<div class="main-grid">
+    <section class="card">
+        <h2>Context: Other Types</h2>
+        <p>To understand RL, we must compare it with the other existing types of ML:</p>
+        <ul>
+            <li><strong>Supervised:</strong> The model has a teacher (labels).</li>
+            <li><strong>Unsupervised:</strong> The model looks for structures on its own.</li>
+            <li><strong>RL:</strong> The model learns from the consequences of its actions.</li>
+        </ul>
+    </section>
+
+    <section class="card">
+        <h2>RL Applications</h2>
+        <ul>
+            <li><strong>Recommendation Systems:</strong> Long-term click optimization.</li>
+            <li><strong>Gaming:</strong> Defeating champions in Chess, Go, or Dota 2.</li>
+            <li><strong>Trading:</strong> Dynamic financial portfolio management.</li>
+            <li><strong>Control:</strong> Stabilization of drones and robotic arms.</li>
+        </ul>
+    </section>
+
+    <section class="card">
+        <h2>Image Processing in RL</h2>
+        <p>When tasked with processing an image, RL agents explore the entire image as a starting point and then sequentially identify objects until all aspects are registered. Computer vision systems also utilize deep convolutional neural networks, built from large labeled datasets, to map images to human-generated scene descriptions from simulation engines.</p>
+        
+        <h3>Key Examples:</h3>
+        <ul>
+            <li><strong>Autonomous Vehicles:</strong> Environment mapping for navigation.</li>
+            <li><strong>Medical Imaging:</strong> Identifying anomalies in diagnostic images.</li>
+            <li><strong>Image Classification:</strong> Object detection and categorization.</li>
+        </ul>
+    </section>
+
+    <div class="card text-center">
+        <a href="https://www.youtube.com/shorts/1FldNkYwdUU?feature=share" target="_blank" class="btn btn-outline-danger">
+            Click here to watch the video
+        </a>
+    </div>
+</div>
+
+<div class="container mt-4 mb-5">
+    <button onclick="window.location.href='/'" class="btn btn-primary">Back home</button>
+    <button onclick="window.location.href='/'" class="btn btn-primary">previous page</button>
+    <button onclick="window.location.href='/secondPage'" class="btn btn-secondary">Next page</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
