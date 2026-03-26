@@ -12,11 +12,11 @@ def home():
 
 @app.route('/FirstPage')
 def fisrtPage():
-    return render_template('index.html')
+    return render_template('caso1.html')
 
 @app.route('/secondPage')
 def actividadE():
-    return render_template('caso1.html')
+    return render_template('caso2.html')
 
 @app.route('/thirdPage')
 def caso3():
@@ -62,7 +62,7 @@ def predictPurchase():
 
     return render_template('LogisticRegression.html', result=calculateResult, plot_url=plot_url)
 
-@app.route('/linearRegresionPrices', methods=['GET', 'POST'])
+@app.route('/linearRegresionPrices/', methods=['GET', 'POST'])
 def calories():
     result = None
     plot_url = None
