@@ -1,5 +1,5 @@
 from flask import Flask , render_template, request
-import LinearRegressionCalories as calories_model
+import LinearRegressionPrices as house_model
 import LinearRegression
 import LogisticRegression
 
@@ -62,19 +62,18 @@ def predictPurchase():
 
     return render_template('LogisticRegression.html', result=calculateResult, plot_url=plot_url)
 
-@app.route('/linearRegresionCalories', methods=['GET', 'POST'])
+@app.route('/linearRegresionPrices', methods=['GET', 'POST'])
 def calories():
     result = None
     plot_url = None
 
     if request.method == 'POST':
-        duration = float(request.form['duration'])
-        intensity = float(request.form['intensity'])
+        size = float(request.form['size'])
+        rooms = float(request.form['rooms'])
 
-        result = round(calories_model.calculateCalories(duration, intensity), 2)
+        result = round(house_model.predict_price(size, rooms), 2)
 
-        # Generate plot
-        calories_model.generate_plot(duration, intensity, result)
+        house_model.generate_plot(size, rooms, result)
         plot_url = "plot.png"
 
-    return render_template('LinearRegressionCalories.html', result=result, plot_url=plot_url)
+    return render_template('LinearRegressionPrices.html', result=result, plot_url=plot_url)
