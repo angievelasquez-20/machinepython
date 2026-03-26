@@ -3,29 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Deep Dive: Reinforcement Learning</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 </head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-<body style = "background-color: #45c6f5;"> </body>
-<div class="text-bg-primary p-3"><h1> First Page </h1></div>
-<div class="text-bg-info p-3"><p> Machine Learning Class  </p> <p> Use case</p></div>
-<div class="card text-bg-primary mb-3" style="max-width: 40rem;">
-  <div class="card-header">Fraud Detection</div>
-  <div class="card-body">
-    <p class="card-text">Machine Learning is widely used in banking systems to detect fraudulent transactions.
-The model analyzes patterns in user behavior, such as location, spending habits, and transaction frequency.
+<body>
 
-If a transaction looks unusual (for example, a large purchase in another country), the system flags it as suspicious or blocks it automatically.</p>
-  </div>
-  
-  <img src="/static/fraude.jpg" class="rounded mx-auto d-block" alt="...">
+<header>
+    <h1>Machine Learning & Reinforcement Learning</h1>
+    <p>Exploring the agent-reward paradigm</p>
+</header>
 
+<section class="card highlight-rl">
+    <h2>Reinforcement Learning (RL)</h2>
+    <p>Unlike other methods, RL does not require prior labeled data. The system learns through <strong>direct interaction</strong> with an environment.</p>
+    
+    
+
+    <div class="concept-box">
+        <div>🤖<br>Agent</div>
+        <div>➡️ Action ➡️</div>
+        <div>🌍<br>Environment</div>
+        <div>⬅️ Reward ⬅️</div>
+    </div>
+
+    <h3>Critical Components:</h3>
+    <ul>
+        <li><strong>State:</strong> The current situation the agent perceives from the environment.</li>
+        <li><strong>Action:</strong> What the agent decides to do based on its policy.</li>
+        <li><strong>Reward:</strong> The scalar feedback it receives (positive or negative).</li>
+        <li><strong>Policy:</strong> The strategy the agent follows to decide the next action.</li>
+    </ul>
+
+    <h3>The Bellman Equation (Simplified):</h3>
+    <div class="formula">
+        $V(s) = \max_a (R(s, a) + \gamma V(s'))$
+    </div>
+    <p><small>Where the value of a state depends on the immediate reward plus the discounted future value ($\gamma$).</small></p>
+</section>
+
+<div class="main-grid">
+    <section class="card">
+        <h2>Context: Other Types</h2>
+        <p>To understand RL, we must compare it with the other existing types of ML:</p>
+        <ul>
+            <li><strong>Supervised:</strong> The model has a teacher (labels).</li>
+            <li><strong>Unsupervised:</strong> The model looks for structures on its own.</li>
+            <li><strong>RL:</strong> The model learns from the consequences of its actions.</li>
+        </ul>
+    </section>
+
+    <section class="card">
+        <h2>RL Applications</h2>
+        <ul>
+            <li><strong>Recommendation Systems:</strong> Long-term click optimization.</li>
+            <li><strong>Gaming:</strong> Defeating champions in Chess, Go, or Dota 2.</li>
+            <li><strong>Trading:</strong> Dynamic financial portfolio management.</li>
+            <li><strong>Control:</strong> Stabilization of drones and robotic arms.</li>
+        </ul>
+    </section>
 </div>
-    <button onclick="window.location.href='/'" class="btn btn-primary">Back home</button>
-    <button onclick="window.location.href='/'" class="btn btn-primary">previous page</button>
-    <button onclick="window.location.href='/secondPage'" class="btn btn-secondary">Next page</button>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script> 
-</body>
 
+<div class="main-grid">
+    <section class="card">
+        <h2>Context: Other Types</h2>
+        <p>To understand RL, we must compare it with the other existing types of ML:</p>
+        <ul>
+            <li><strong>Supervised:</strong> The model has a teacher (labels).</li>
+            <li><strong>Unsupervised:</strong> The model looks for structures on its own.</li>
+            <li><strong>RL:</strong> The model learns from the consequences of its actions.</li>
+        </ul>
+    </section>
+
+    <section class="card">
+        <h2>RL Applications</h2>
+        <ul>
+            <li><strong>Recommendation Systems:</strong> Long-term click optimization.</li>
+            <li><strong>Gaming:</strong> Defeating champions in Chess, Go, or Dota 2.</li>
+            <li><strong>Trading:</strong> Dynamic financial portfolio management.</li>
+            <li><strong>Control:</strong> Stabilization of drones and robotic arms.</li>
+        </ul>
+    </section>
+
+    <section class="card">
+        <h2>Image Processing in RL</h2>
+        <p>When tasked with processing an image, RL agents explore the entire image as a starting point and then sequentially identify objects until all aspects are registered. Computer vision systems also utilize deep convolutional neural networks, built from large labeled datasets, to map images to human-generated scene descriptions from simulation engines.</p>
+        
+        <h3>Key Examples:</h3>
+        <ul>
+            <li><strong>Autonomous Vehicles:</strong> Environment mapping for navigation.</li>
+            <li><strong>Medical Imaging:</strong> Identifying anomalies in diagnostic images.</li>
+            <li><strong>Image Classification:</strong> Object detection and categorization.</li>
+        </ul>
+    </section>
+
+    <div class="card text-center">
+        <a href="https://www.youtube.com/shorts/1FldNkYwdUU?feature=share" target="_blank" class="btn btn-outline-danger">
+            Click here to watch the video
+        </a>
+    </div>
+</div>
+
+    <div class="text-center mt-5">
+        <button onclick="window.location.href='/'" class="btn btn-primary mx-2">Back home</button>
+        <button onclick="window.location.href='/firstPage'" class="btn btn-secondary mx-2">Next page</button>
+        <button onclick="window.location.href='/thirdPage'" class="btn btn-secondary mx-2">Next page</button>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
