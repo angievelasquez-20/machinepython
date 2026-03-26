@@ -1,0 +1,39 @@
+        :root {
+            --primary: #041e39;
+            --accent: #4bc2c2;
+            --bg: #f8f9fa;
+            --text: #230725;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--bg);
+        }
+        header {
+            text-align: center;
+            padding: 60px 30px;
+            background: linear-gradient(135deg, #000000 0%, #112d16 100%);
+            color: rgb(245, 255, 158);
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 20px rgba(85, 63, 8, 0.1);
+        }
+        .predic {
+            background: #05b6ca;
+            color: #000000;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .Contexts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 768px) { .main-grid { grid-template-columns: 1fr; } }
