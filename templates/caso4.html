@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning - Predictive Maintenance</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body class="predictive-maintenance-page">
+
+    <header>
+        <h1>Machine Learning & Predictive Maintenance</h1>
+        <p class="fs-5 mt-3">Anticipating equipment failures through intelligent data analysis</p>
+    </header>
+
+    <div class="main-grid">
+        <div class="card highlight-rl">
+            <h2><span class="badge">Case Study</span> Predictive Maintenance</h2>
+            <p class="lead">Predictive Maintenance is a use case of Machine Learning that focuses on predicting equipment failures before they occur by analyzing historical and real-time data.</p>
+
+            <div class="alert alert-info">
+                <strong>Key Advantage:</strong> Unlike traditional maintenance, which is scheduled or reactive, predictive maintenance allows systems to act proactively, reducing downtime and costs.
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>System Architecture</h3>
+            <div class="concept-box">
+                <div>
+                    <strong>Sensor Data</strong><br>
+                    <small>Temperature, vibration, usage time</small>
+                </div>
+                <div>
+                    <strong>ML Model</strong><br>
+                    <small>Learns failure patterns</small>
+                </div>
+                <div>
+                    <strong>Prediction</strong><br>
+                    <small>Failure probability</small>
+                </div>
+                <div>
+                    <strong>Action</strong><br>
+                    <small>Preventive alerts</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Critical Components</h3>
+            <div class="concept-box">
+                <div>
+                    <strong>Historical Data</strong><br>
+                    <small>Past performance records</small>
+                </div>
+                <div>
+                    <strong>Features</strong><br>
+                    <small>Temperature, pressure, runtime</small>
+                </div>
+                <div>
+                    <strong>Model</strong><br>
+                    <small>ML algorithms</small>
+                </div>
+                <div>
+                    <strong>Output</strong><br>
+                    <small>Failure probability</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Learning Types</h3>
+            <ul class="list-unstyled">
+                <li class="mb-3">🔍 <strong>Supervised Learning:</strong> Uses labeled data (failure/no failure)</li>
+                <li class="mb-3">🧠 <strong>Unsupervised Learning:</strong> Detects anomalies and unusual behavior</li>
+                <li class="mb-3">📈 <strong>Time Series Analysis:</strong> Predicts based on temporal patterns</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Real-World Example</h3>
+        <div class="formula">
+            Temperature ↑ + Vibration ↑ + Runtime → High Failure Risk → Maintenance Alert
+        </div>
+        <p class="mt-3">If a machine shows continuous increase in temperature and vibration, the model predicts high probability of failure and triggers preventive maintenance.</p>
+    </div>
+
+    <div class="main-grid">
+        <div class="card">
+            <h3>Industry Applications</h3>
+            <div class="alert alert-success">
+                <strong>🏭 Manufacturing:</strong> Monitor industrial machines to prevent failures
+            </div>
+            <div class="alert alert-warning">
+                <strong>🚗 Transportation:</strong> Detect engine problems before they occur
+            </div>
+            <div class="alert alert-info">
+                <strong>💻 IT Systems:</strong> Prevent server crashes and downtime
+            </div>
+            <div class="alert alert-danger">
+                <strong>⚡ Energy:</strong> Monitor turbines and power systems
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Technical Implementation</h3>
+            <div class="code-block">
+# Predictive Maintenance with Scikit-learn
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+
+# Features: temperature, vibration, pressure, runtime
+X = sensor_data[['temp', 'vibration', 'pressure', 'runtime']]
+y = failure_labels
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+model = RandomForestClassifier(n_estimators=100)
+model.fit(X_train, y_train)
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Key Quote</h3>
+        <blockquote class="blockquote">
+            <p class="mb-0">"Predictive maintenance uses machine learning to anticipate failures before they happen, improving efficiency and reducing operational costs."</p>
+        </blockquote>
+    </div>
+
+    <div class="main-grid">
+        <div class="card">
+            <h3>Recommended Resources</h3>
+            <div class="mb-2">
+                <strong>📚 Books:</strong>
+                <ul class="mt-2">
+                    <li><em>Hands-On Machine Learning</em> - Aurélien Géron</li>
+                    <li><em>Deep Learning</em> - Goodfellow, Bengio & Courville</li>
+                    <li><em>Machine Learning</em> - Tom Mitchell</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Online Resources</h3>
+            <div class="d-grid gap-2">
+                <a href="https://www.ibm.com/topics/predictive-maintenance" target="_blank" class="btn btn-outline-primary">
+                    IBM - Predictive Maintenance
+                </a>
+                <a href="https://learn.microsoft.com/en-us/azure/architecture/example-scenario/predictive-maintenance" target="_blank" class="btn btn-outline-primary">
+                    Microsoft Azure Guide
+                </a>
+                <a href="https://developers.google.com/machine-learning/crash-course" target="_blank" class="btn btn-outline-primary">
+                    Google ML Crash Course
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <button onclick="window.location.href='/'" class="btn btn-primary me-3">🏠 Home</button>
+        <button onclick="window.location.href='/thirdPage'" class="btn me-3">⬅️ Previous Page</button>
+        <button onclick="window.location.href='/linearRegresion/'" class="btn btn-secondary">📈 Linear Regression ➡️</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
