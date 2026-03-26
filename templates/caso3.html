@@ -3,86 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Machine Learning</title>
-
-    <!-- Bootstrap -->
+    <title>Machine Learning - Fraud Detection</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="{{url_for('static', filename='outfit.css')}}">
-
 </head>
-
-<body class="bg-light">
+<body>
 
     <header>
-    <h1>Machine Learning & Predictive Maintenance</h1>
+        <h1>Machine Learning in Fraud Detection</h1>
+        <p class="fs-5 mt-3">Advanced algorithms protecting financial systems worldwide</p>
     </header>
 
-<div class="container py-4">
-        
-    <p class="fs-4">
-      Predictive Maintenance is a use case of Machine Learning that focuses
-      on predicting equipment failures before they occur by analyzing
-      historical and real-time data. Unlike traditional maintenance, which
-      is scheduled or reactive, predictive maintenance allows systems to act
-      proactively, reducing downtime and costs
-    </p>
-</div>
+    <div class="main-grid">
+        <div class="card highlight-rl">
+            <h2><span class="badge">Case Study</span> Fraud Detection Systems</h2>
+            <p class="lead">Machine Learning is widely used in banking systems to detect fraudulent transactions. The model analyzes patterns in user behavior, such as location, spending habits, and transaction frequency.</p>
 
-<h4>System Flow</h4>
+            <div class="alert alert-info">
+                <strong>How it works:</strong> If a transaction looks unusual (for example, a large purchase in another country), the system flags it as suspicious or blocks it automatically.
+            </div>
+        </div>
 
-<div class="diseño">
-  <div class="container text-center">
-    <div class="row align-items-start">
-      <div class="col">
-        Sensor Data
-      </div>
-      <div class="col">
-        Model
-      </div>
-      <div class="col">
-        Prediction
-      </div>
-      <div class="col">
-        Action
-      </div>
-    </div>
-  </div>
-</div>
-    <ul>
-      <li><strong>Sensor Data:</strong> Information collected from machines (temperature, vibration, usage time).</li>
-      <li><strong>Model:</strong> Model: Learns patterns from past data.</li>
-      <li><strong>Prediction:</strong> Prediction: Estimates the probability of failure.</li>
-      <li><strong>Action:</strong> Action: Triggers alerts or maintenance before breakdown.</li>
-    </ul>
+        <div class="card">
+            <h3>Key Technologies</h3>
+            <div class="concept-box">
+                <div>
+                    <strong>Supervised Learning</strong><br>
+                    <small>Classification algorithms</small>
+                </div>
+                <div>
+                    <strong>Anomaly Detection</strong><br>
+                    <small>Unusual pattern recognition</small>
+                </div>
+                <div>
+                    <strong>Real-time Processing</strong><br>
+                    <small>Instant decision making</small>
+                </div>
+            </div>
+        </div>
 
-    <h4>Critical Components:</h4>
+        <div class="card">
+            <h3>Algorithm Examples</h3>
+            <div class="code-block">
+# Logistic Regression for Fraud Classification
+from sklearn.linear_model import LogisticRegression
 
-<div class="diseño">
-  <div class="container text-center">
-    <div class="row align-items-start">
-      <div class="col">
-        Historical Data
-      </div>
-      <div class="col">
-        Features
-      </div>
-      <div class="col">
-        Model
-      </div>
-      <div class="col">
-        Output
-      </div>
-    </div>
-  </div>
-</div>
-    
-    <ul>
-      <li><strong>Historical Data:</strong> Records of past machine performance and failures.</li>
-      <li><strong>Features:</strong> Variables like temperature, pressure, or runtime.</li>
-      <li><strong>Model:</strong> Machine Learning algorithms (regression or classification).</li>
-      <li><strong>Output:</strong> Failure probability or remaining useful life.</li>
-    </ul>
+model = LogisticRegression()
+model.fit(X_train, y_train)
+prediction = model.predict_proba(transaction_features)
+            </div>
+            <p class="mt-3">Common algorithms include Logistic Regression, Random Forest, Neural Networks, and ensemble methods.</p>
+        </div>
 
     <h3>Example</h3>
     <p class="fs-4">
@@ -111,31 +82,20 @@
        failures before they happen, improving efficiency and reducing operational costs.”</small>
     </h4>
 
-    <div class="container mt-4 mb-5">
-    <button onclick="window.location.href='/'" class="btn btn-primary">Back home</button>
-    <button onclick="window.location.href='/secondPage'" class="btn btn-primary">previous page</button>
-    <button onclick="window.location.href='/FourPage'" class="btn btn-secondary">Next page</button>
+    <div class="card">
+        <h3>System Architecture</h3>
+        <div class="formula">
+            Raw Data → Feature Engineering → ML Model → Real-time Scoring → Decision Engine
+        </div>
+        <p class="mt-3">The system processes transaction data through multiple layers to ensure maximum accuracy and minimal false positives.</p>
     </div>
 
-  <div class="container mt-5">
-    <h4>References</h4>
-    <ul>
-      <li>Géron, A. (2019). Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow. O'Reilly Media.</li>
-      <li>Goodfellow, I., Bengio, Y., & Courville, A. (2016). Deep Learning. MIT Press.</li>
-      <li>Mitchell, T. M. (1997). Machine Learning. McGraw-Hill.</li>
-      <a href="https://www.ibm.com/topics/predictive-maintenance" target="_blank" class="btn btn-outline-danger">
-            IBM. (2023). What is Predictive Maintenance?
-      </a>
-      <a href="https://learn.microsoft.com/en-us/azure/architecture/example-scenario/predictive-maintenance" target="_blank" class="btn btn-outline-danger">
-            Microsoft Azure. Predictive Maintenance.
-      </a>
-      <a href="https://developers.google.com/machine-learning/crash-course" target="_blank" class="btn btn-outline-danger">
-            Google Developers. Machine Learning Crash Course.
-      </a>
-    </ul>
-  </div>
+    <div class="text-center mt-4">
+        <button onclick="window.location.href='/'" class="btn btn-primary me-3">Home</button>
+        <button onclick="window.location.href='/secondPage'" class="btn me-3">Previous Page</button>
+        <button onclick="window.location.href='/fourthPage'" class="btn btn-secondary">Next Page</button>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
-
 </html>
