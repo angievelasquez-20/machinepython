@@ -9,46 +9,63 @@
 </head>
 <body>
 
-  <h1 class="text-center my-3">Machine Learning</h1>
+  <h1 class="text-center my-3">Welcome to {{name}}</h1>
 
-  <div class="dropdown text-center mt-4">
-  <a class="btn btn-primary dropdown-toggle px-4 py-2 shadow" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    menu
-  </a>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">FlaskApp</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-  <ul class="dropdown-menu shadow-lg border-0">
-    <li><a class="dropdown-item" href="/FirstPage">Fraud Detection</a></li>
-    <li><a class="dropdown-item" href="/secondPage">Deep Dive: Reinforcement Learning</a></li>
-    <li><a class="dropdown-item" href="/thirdPage">Predictive Maintenance</a></li>
-    <li><a class="dropdown-item" href="/fourPage">Customer Segmentation</a></li>
-    <li><a class="dropdown-item" href="/linearRegresion">Linear Regression</a></li>
-    <li><a class="dropdown-item" href="/logisticRegression">Logistic Regression</a></li>
-    <li><a class="dropdown-item" href="/linearRegresionPrices">House Price Prediction</a></li>
-  </ul>
-</div>
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-  <div class="container my-4">
-    <div class="row g-3">
-      <div class="col-md-6 col-12">
-        <div class="p-3 bg-light border rounded shadow-sm">
-          <h5 class="text-primary">Tomas Felipe Niño roa</h5>
-          <p>Estudiante Ingenieria de Sistemas y computacion</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-12">
-        <div class="p-3 bg-light border rounded shadow-sm">
-          <h5 class="text-primary">Juan Miguel Espejo Bueno</h5>
-          <p>Estudiante Ingenieria de Sistemas y computacion</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-12">
-        <div class="p-3 bg-light border rounded shadow-sm">
-          <h5 class="text-primary">Angie Tatiana Velasquez Quiroga</h5>
-          <p>Estudiante Ingenieria de Sistemas y computacion</p>
-        </div>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Casos de exito</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/FirstPage">Fraud Detection</a></li>
+              <li><a class="dropdown-item" href="/secondPage">Deep Dive: Reinforcement Learning</a></li>
+              <li><a class="dropdown-item" href="/thirdPage">Predictive Maintenance</a></li>
+              <li><a class="dropdown-item" href="/fourPage">Customer Segmentation</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Modelos de Machine Learning</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/linearRegresion">Linear Regression</a></li>
+              <li><a class="dropdown-item" href="/logisticRegression">Logistic Regression</a></li>
+              <li><a class="dropdown-item" href="/linearRegresionPrices">House Price Prediction</a></li>
+            </ul>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
+</nav>
+
+<div class="container-sm my-3">
+  <div class="row g-2">
+            <div class="col-md-6 col-12">
+              <div class="p-3 bg-light border rounded shadow-sm">
+                <h5 class="text-primary">Tomas Felipe Niño roa</h5>
+                <p>Estudiante Ingenieria de Sistemas y computacion</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-12">
+              <div class="p-3 bg-light border rounded shadow-sm">
+                <h5 class="text-primary">Juan Miguel Espejo Bueno</h5>
+                <p>Estudiante Ingenieria de Sistemas y computacion</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-12">
+              <div class="p-3 bg-light border rounded shadow-sm">
+                <h5 class="text-primary">Angie Tatiana Velasquez Quiroga</h5>
+                <p>Estudiante Ingenieria de Sistemas y computacion</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
   <!-- Footer -->
   <footer class="bg-dark text-white text-center py-3 mt-4">
@@ -56,5 +73,7 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </body>
 </html>
