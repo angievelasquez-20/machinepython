@@ -111,3 +111,5 @@ def logistic_page():
 
     return render_template('Logisticmodel.html',result=result,probability=probability,prob_percent=prob_percent,
         accuracy=accuracy,accuracy_percent=accuracy_percent,report=report)
+
+

@@ -3,114 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Machine Learning</title>
+    <title>Supervised Learning</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <link rel="stylesheet" href="{{url_for('static', filename='outfit.css')}}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
-<body class="bg-dark text-light">
+<body>
 
-<header class="text-center py-4" style="background: linear-gradient(90deg, #0d6efd, #20c997);">
-    <h1 class="fw-bold">Supervised Machine Learning</h1>
+<header>
+    <h1>Supervised Learning</h1>
 </header>
 
-<div class="container py-4">
-        
-    <p class="fs-4 text-secondary">
+<div class="card highlight-rl">
+    <p>
       Supervised Learning is a type of Machine Learning where the model is trained
       using labeled data. This means that each input has a known output, and the
       model learns the relationship between them to make predictions on new data.
     </p>
 </div>
 
-<h4 class="text-center text-info">System Flow</h4>
+<h2>System Flow</h2>
 
-<div class="diseño bg-secondary bg-opacity-10 rounded p-3">
-  <div class="container text-center">
-    <div class="row align-items-start">
-      <div class="col text-warning fw-bold">
-        Input Data
-      </div>
-      <div class="col text-primary fw-bold">
-        Model
-      </div>
-      <div class="col text-success fw-bold">
-        Prediction
-      </div>
-      <div class="col text-danger fw-bold">
-        Output
-      </div>
-    </div>
+<div class="concept-box">
+  <div class="text-warning">
+    <strong>Input Data</strong><br><small>Labeled data with known outputs</small>
+  </div>
+  <div class="text-primary">
+    <strong>Model</strong><br><small>Learns patterns from training data</small>
+  </div>
+  <div class="text-success">
+    <strong>Prediction</strong><br><small>Estimates results for new inputs</small>
+  </div>
+  <div class="text-danger">
+    <strong>Output</strong><br><small>Predicted value or class</small>
   </div>
 </div>
 
-<ul class="text-light">
-  <li><strong>Input Data:</strong> Labeled data with known outputs.</li>
-  <li><strong>Model:</strong> Learns patterns from training data.</li>
-  <li><strong>Prediction:</strong> Estimates results for new inputs.</li>
-  <li><strong>Output:</strong> Predicted value or class.</li>
-</ul>
+<h2>Critical Components</h2>
 
-<h4 class="text-center text-info">Critical Components:</h4>
-
-<div class="diseño bg-secondary bg-opacity-10 rounded p-3">
-  <div class="container text-center">
-    <div class="row align-items-start">
-      <div class="col text-warning fw-bold">
-        Training Data
-      </div>
-      <div class="col text-primary fw-bold">
-        Features
-      </div>
-      <div class="col text-success fw-bold">
-        Model
-      </div>
-      <div class="col text-danger fw-bold">
-        Labels
-      </div>
-    </div>
+<div class="concept-box">
+  <div class="text-warning">
+    <strong>Training Data</strong><br><small>Dataset used to train the model</small>
+  </div>
+  <div class="text-primary">
+    <strong>Features</strong><br><small>Input variables used for prediction</small>
+  </div>
+  <div class="text-success">
+    <strong>Model</strong><br><small>Algorithm that learns patterns</small>
+  </div>
+  <div class="text-danger">
+    <strong>Labels</strong><br><small>Correct answers associated with the data</small>
   </div>
 </div>
 
-<ul class="text-light">
-  <li><strong>Training Data:</strong> Dataset used to train the model.</li>
-  <li><strong>Features:</strong> Input variables used for prediction.</li>
-  <li><strong>Model:</strong> Algorithm that learns patterns (e.g., regression, classification).</li>
-  <li><strong>Labels:</strong> Correct answers associated with the data.</li>
-</ul>
+<h2>Example</h2>
 
-<h3 class="text-center text-success">Example</h3>
-<p class="fs-4 text-secondary">
-  A model trained with house data (size and price) can learn the relationship
+<div class="alert alert-info">
+  <strong>Case Study:</strong> A model trained with house data (size and price) can learn the relationship
   between these variables and predict the price of a new house.
-</p>
+</div>
 
-<h4 class="text-center text-info">Types of Supervised Learning</h4>
+<h2>Types of Supervised Learning</h2>
 
-<ul class="text-light">
+<ul>
     <li><strong>Regression:</strong> Predicts continuous values (e.g., house prices).</li>
     <li><strong>Classification:</strong> Predicts categories (e.g., fraud or not fraud).</li>
 </ul>
 
-<h3 class="text-center text-success">Applications:</h3>
+<h2>Applications</h2>
 
-<p class="fs-4 text-secondary">
+<p>
   Supervised learning is widely used in many fields such as finance, healthcare,
   marketing, and technology. It is applied in tasks like fraud detection,
   price prediction, medical diagnosis, and recommendation systems.
 </p>
 
-<h4 class="text-center">
- <small class="text-info">“Supervised learning uses labeled data to train models and make accurate predictions.”</small>
-</h4>
 
-<div class="container mt-4 mb-5 text-center">
+<div class="alert alert-warning">
+  <strong>Key Insight:</strong> <em>"Supervised learning uses labeled data to train models and make accurate predictions."</em>
+</div>
+
+<div class="text-center" style="margin-top: 40px; margin-bottom: 40px;">
     <button onclick="window.location.href='/'" class="btn btn-success mx-2">Back home</button>
-    <button onclick="window.location.href='/FourPage'" class="btn btn-warning mx-2">Previous page</button>
-    <button onclick="window.location.href='/linearRegresion'" class="btn btn-danger mx-2">Next page</button>
+    <button onclick="window.location.href='/fourPage'" class="btn btn-secondary mx-2">Previous page</button>
+    <button onclick="window.location.href='/linearRegresion'" class="btn mx-2" style="background: linear-gradient(135deg, var(--danger) 0%, #c0392b 100%);">Next page</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
