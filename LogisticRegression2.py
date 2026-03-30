@@ -47,15 +47,15 @@ def generate_confusion_matrix():
    
     y_pred = model.predict(X)
 
+
     # Calculate confusion matrix
     conf_matrix = confusion_matrix(y, y_pred)
-
     plt.figure(figsize=(8,6))
     sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues', cbar=False)
 
     plt.xlabel('Predicted')
     plt.ylabel('Actual')
     plt.title('Confusion Matrix')
-
+    plt.savefig('static/logistic2_plot.png')
     plt.savefig('static/confusion_matrix.png')
     plt.close()
