@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaussian Naive Bayes - Guía Rápida</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Gaussian Naive Bayes</h1>
+    <p>Clasificación probabilística para datos continuos</p>
+</header>
+
+<section>
+    <h2>¿Qué es?</h2>
+    <p>El <strong>Gaussian Naive Bayes</strong> es una variante del algoritmo Naive Bayes diseñada para tratar con variables continuas. Se basa en el Teorema de Bayes y asume que las características (features) de cada clase siguen una <strong>distribución normal</strong> (o Gaussiana).</p>
+</section>
+
+<section>
+    <h2>La Suposición de Normalidad</h2>
+    <p>Cuando trabajamos con datos continuos (como la altura, el peso o la temperatura), no podemos simplemente contar frecuencias. En su lugar, calculamos la probabilidad usando la función de densidad de probabilidad de la distribución normal:</p>
+    
+    <div class="formula">
+        P(x_i | y) = (1 / sqrt(2πσ²_y)) * exp(-(x_i - μ_y)² / 2σ²_y)
+    </div>
+
+    <ul>
+        <li><strong>μ_y:</strong> La media de los valores de <code>x</code> para la clase <code>y</code>.</li>
+        <li><strong>σ²_y:</strong> La varianza de los valores de <code>x</code> para la clase <code>y</code>.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Ventajas y Desventajas</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Ventajas</th>
+                <th>Desventajas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Es extremadamente rápido.</td>
+                <td>Asume independencia entre variables (raro en la vida real).</td>
+            </tr>
+            <tr>
+                <td>Funciona bien con pocos datos.</td>
+                <td>Si los datos no son Gaussianos, el rendimiento baja.</td>
+            </tr>
+            <tr>
+                <td>Fácil de implementar.</td>
+                <td>Sensible a valores atípicos (outliers).</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<section>
+    <h2>Casos de Uso Comunes</h2>
+    <ul>
+        <li>Clasificación de texto (si se transforman a valores continuos como TF-IDF).</li>
+        <li>Diagnóstico médico inicial.</li>
+        <li>Detección de spam y filtrado de contenido.</li>
+        <li>Sistemas de recomendación básicos.</li>
+    </ul>
+</section>
+
+<footer>
+    <p style="text-align: center; font-size: 0.8em; color: #777;">Generado para fines educativos sobre Machine Learning.</p>
+</footer>
+
+</body>
+</html>
