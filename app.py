@@ -125,3 +125,33 @@ def predictHiring():
         plot_url = 'logistic2_plot.png'
 
     return render_template('LogisticRegression2.html', result=calculateResult, plot_url=plot_url)
+
+@app.route('/logisticmodel', methods=['GET', 'POST'])
+def logistic_page():
+
+    result = None
+    probability = None
+    prob_percent = None 
+    accuracy = None
+    accuracy_percent = None 
+    report = None
+
+    if request.method == 'POST':
+        exp = float(request.form['experience'])
+        python = int(request.form['python'])
+        sql = int(request.form['sql'])
+        ml = int(request.form['ml'])
+
+        probability, prediction = Logisticmodel.predict_candidate(exp, python, sql, ml)
+
+        result = "Hired" if prediction == 1 else "Not Hired"
+
+        accuracy, report = Logisticmodel.generate_metrics()
+
+        accuracy_percent = round(accuracy * 100, 2)
+
+    return render_template('Logisticmodel.html',result=result,probability=probability,prob_percent=prob_percent,
+        accuracy=accuracy,accuracy_percent=accuracy_percent,report=report)
+
+if __name__ == '__main__':
+    app.run(debug=True)    
