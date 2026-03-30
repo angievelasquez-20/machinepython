@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import roc_curve, auc
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix
@@ -47,6 +48,7 @@ def generate_confusion_matrix():
    
     y_pred = model.predict(X)
 
+    # Calculate confusion matrix
     conf_matrix = confusion_matrix(y, y_pred)
 
     plt.figure(figsize=(8,6))
@@ -56,5 +58,23 @@ def generate_confusion_matrix():
     plt.ylabel('Actual')
     plt.title('Confusion Matrix')
 
-    plt.savefig('static/logistic2_plot.png')
+    plt.savefig('static/logistic2_plot.png') 
+    plt.close()
+
+def generate_roc_curve():
+    y_prob = model.predict_proba(X)[:,1]
+
+    fpr, tpr, _ = roc_curve(y, y_prob)
+    roc_auc = auc(fpr, tpr)
+
+    plt.figure()
+    plt.plot(fpr, tpr, label=f"AUC = {roc_auc:.2f}")
+    plt.plot([0,1], [0,1], linestyle='--')  # diagonal
+
+    plt.xlabel("False Positive Rate")
+    plt.ylabel("True Positive Rate")
+    plt.title("ROC Curve")
+    plt.legend()
+
+    plt.savefig('static/roc_curve.png')
     plt.close()

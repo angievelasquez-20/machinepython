@@ -98,6 +98,15 @@
 
                 <div class="col-md-7">
 
+                    <!-- 👇 IMAGEN AGREGADA -->
+                    {% if plot_url %}
+                    <div class="text-center mb-4">
+                        <img src="{{ url_for('static', filename=plot_url) }}" 
+                             alt="Confusion Matrix" 
+                             class="img-fluid rounded shadow">
+                    </div>
+                    {% endif %}
+
                     <div class="theory-section shadow-sm p-3">
                         <h3>Model Prediction Explanation</h3>
 
@@ -107,38 +116,33 @@
                         </p>
 
                         <h5>How the prediction is made</h5>
-                        <p>
-                            The model analyzes key variables such as:
-                        </p>
                         <ul>
                             <li>Years of experience</li>
                             <li>Technical skills (Python, SQL, ML, Deep Learning, Cloud)</li>
                         </ul>
 
                         <p>
-                            Each of these variables contributes to a final probability score between 0 and 1.
+                            Each variable contributes to a probability between 0 and 1.
                         </p>
 
-                        <h5>Interpretation of the result</h5>
+                        <h5>Interpretation</h5>
                         <ul>
-                            <li>If the probability is <strong>greater than 0.5</strong> → High Hiring Urgency</li>
-                            <li>If the probability is <strong>less than or equal to 0.5</strong> → Low Hiring Urgency</li>
+                            <li>> 0.5 → High Hiring Urgency</li>
+                            <li>≤ 0.5 → Low Hiring Urgency</li>
                         </ul>
 
-                        <h5>What the model learns</h5>
+                        <h5>Confusion Matrix</h5>
                         <p>
-                            The model was trained using historical job market data, where it learned patterns such as:
+                            The confusion matrix shows how well the model performs by comparing 
+                            predicted values with real values:
                         </p>
                         <ul>
-                            <li>Higher experience often increases hiring urgency</li>
-                            <li>Candidates with more technical skills are more likely to be urgently needed</li>
+                            <li>True Positives: Correct high urgency predictions</li>
+                            <li>True Negatives: Correct low urgency predictions</li>
+                            <li>False Positives: Incorrect high predictions</li>
+                            <li>False Negatives: Missed high urgency cases</li>
                         </ul>
 
-                        <h5>Purpose of the model</h5>
-                        <p>
-                            The goal is to support decision-making by estimating how urgently a candidate profile
-                            is needed in the job market.
-                        </p>
                     </div>
 
                 </div>
