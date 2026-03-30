@@ -47,7 +47,10 @@ def generate_confusion_matrix():
    
     y_pred = model.predict(X)
 
+<<<<<<< HEAD
+=======
     # Calculate confusion matrix
+>>>>>>> 69df258705f49de899574845016d5690fd5fb326
     conf_matrix = confusion_matrix(y, y_pred)
 
     plt.figure(figsize=(8,6))
@@ -57,5 +60,9 @@ def generate_confusion_matrix():
     plt.ylabel('Actual')
     plt.title('Confusion Matrix')
 
+<<<<<<< HEAD
+    plt.savefig('static/logistic2_plot.png')
+=======
     plt.savefig('static/confusion_matrix.png')
+>>>>>>> 69df258705f49de899574845016d5690fd5fb326
     plt.close()

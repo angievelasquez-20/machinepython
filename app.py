@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import LinearRegressionPrices as house_model
 import LinearRegression
 import LogisticRegression
-import Logisticmodel
+import LogisticRegression2 as LogisticRegression
 
 app = Flask(__name__)
 
@@ -88,31 +88,40 @@ def calories():
 
     return render_template('LinearRegressionPrices.html', result=result, plot_url=plot_url)
 
-@app.route('/logisticmodel', methods=['GET', 'POST'])
-def logistic_page():
+@app.route('/LogisticRegression2/', methods=["GET", "POST"])
+def predictHiring():
+    calculateResult = None
+    plot_url = None
 
-    result = None
-    probability = None
-    prob_percent = None 
-    accuracy = None
-    accuracy_percent = None 
-    report = None
+    if request.method == "POST":
+        # Inputs from the form
+        years_exp = float(request.form['years_experience'])
+        python = int(request.form['skills_python'])
+        sql = int(request.form['skills_sql'])
+        ml = int(request.form['skills_ml'])
+        dl = int(request.form['skills_deep_learning'])
+        cloud = int(request.form['skills_cloud'])
 
-    if request.method == 'POST':
-        exp = float(request.form['experience'])
-        python = int(request.form['python'])
-        sql = int(request.form['sql'])
-        ml = int(request.form['ml'])
+        # Dictionary to hold input data for prediction
+        input_data = {
+            "years_experience": years_exp,
+            "skills_python": python,
+            "skills_sql": sql,
+            "skills_ml": ml,
+            "skills_deep_learning": dl,
+            "skills_cloud": cloud
+        }
 
-        probability, prediction = Logisticmodel.predict_candidate(exp, python, sql, ml)
+        # Predicción
+        prob = LogisticRegression.predict_hiring(input_data)
 
-        result = "Hired" if prediction == 1 else "Not Hired"
+        if prob > 0.5:
+            calculateResult = f"High Hiring Urgency (Probability: {prob:.2f})"
+        else:
+            calculateResult = f"Low Hiring Urgency (Probability: {prob:.2f})"
 
-        accuracy, report = Logisticmodel.generate_metrics()
+        # grafic generation 
+        LogisticRegression.generate_confusion_matrix()
+        plot_url = 'logistic2_plot.png'
 
-        prob_percent = round(probability * 100, 2)
-        accuracy_percent = round(accuracy * 100, 2)
-
-    return render_template('Logisticmodel.html',result=result,probability=probability,prob_percent=prob_percent,
-        accuracy=accuracy,accuracy_percent=accuracy_percent,report=report)
-
+    return render_template('LogisticRegression2.html', result=calculateResult, plot_url=plot_url)
