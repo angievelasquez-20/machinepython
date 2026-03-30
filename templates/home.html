@@ -1,41 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>maching learning</title>
-
-    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
-
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Flask</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+<body>
 
-<body style="background: linear-gradient(135deg, #e3f2fd, #ffffff); min-height: 100vh;">
-    
-<div class="text-bg-primary p-3 text-center shadow" style="background: linear-gradient(90deg, #0d6efd, #6610f2) !important;">
-    <h1 class="fw-bold"> welcome Home </h1>
-</div>
+  <h1 class="text-center my-3">Welcome to {{name}}</h1>
 
-<div class="text-bg-info p-3 text-center shadow-sm" style="background-color: #f8f9fa !important; color: #6c757d !important;">
-    <p class="fs-5"> Machine Learning Class</p>
-</div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">FlaskApp</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-<div class="dropdown text-center mt-4">
-  <a class="btn btn-primary dropdown-toggle px-4 py-2 shadow" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    menu
-  </a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">ML use cases</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/FirstPage">case1: Fraud Detection</a></li>
+              <li><a class="dropdown-item" href="/secondPage">case2: Deep Dive: Reinforcement Learning</a></li>
+              <li><a class="dropdown-item" href="/thirdPage">case3: Predictive Maintenance</a></li>
+              <li><a class="dropdown-item" href="/fourPage">case4: Customer Segmentation</a></li>
+              <li><a class="dropdown-item" href="/supervicedLearning">Supervised Learning</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Supervised Machine Learning</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/linearRegresion">Linear Regression concepts</a></li>
+              <ul class="dropdown-submenu">
+              <li><a class="dropdown-item" href="/linearRegresionPrices">House Price Prediction</a></li>
+              </ul>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="/logisticRegression">Logistic Regression concepts</a></li>
+              <ul class="dropdown-submenu">
+              <li><a class="dropdown-item" href="/logisticmodel">Logistic Regression</a></li>
+              </ul>
+              <ul class="dropdown-submenu">
+              <li><a class="dropdown-item" href="/">assigned logistic regression</a></li>
+              </ul>
+            </ul>
+        </ul>
+      </div>
+    </div>
+</nav>
 
-  <ul class="dropdown-menu shadow-lg border-0">
-    <li><a class="dropdown-item" href="/FirstPage">Deep Dive: Reinforcement Learning</a></li>
-    <li><a class="dropdown-item" href="/secondPage">Fraud Detection</a></li>
-    <li><a class="dropdown-item" href="/thirdPage">Predictive Maintenance</a></li>
-    <li><a class="dropdown-item" href="/FourPage">Customer Segmentation</a></li>
-    <li><a class="dropdown-item" href="/linearRegresion">Linear Regression</a></li>
-    <li><a class="dropdown-item" href="/logisticRegression">Logistic Regression</a></li>
-  </ul>
-</div>
+<div class="container-sm my-3">
+  <div class="row g-2">
+            <div class="col-md-6 col-12">
+              <div class="p-3 bg-light border rounded shadow-sm">
+                <h5 class="text-primary">Tomas Felipe Niño roa</h5>
+                <p>Student of Systems and Computer Engineering.</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-12">
+              <div class="p-3 bg-light border rounded shadow-sm">
+                <h5 class="text-primary">Juan Miguel Espejo Bueno</h5>
+                <p>Student of Systems and Computer Engineering.</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-12">
+              <div class="p-3 bg-light border rounded shadow-sm">
+                <h5 class="text-primary">Angie Tatiana Velasquez Quiroga</h5>
+                <p>Student of Systems and Computer Engineering.</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3 mt-4">
+    <p class="mb-0">© 2026 FlaskApp | Diseñado con Bootstrap 💙</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </body>
 </html>

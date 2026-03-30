@@ -3,144 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Machine Learning</title>
+    <title>Customer Segmentation - Machine Learning</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <link rel="stylesheet" href="{{url_for('static', filename='outfit.css')}}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
-<body class="bg-dark text-light">
+<body>
 
-<header class="text-center py-4 bg-warning text-dark">
-    <h1 class="fw-bold">Machine Learning & House Price Prediction</h1>
+<header>
+    <h1>Machine Learning & House Price Prediction</h1>
 </header>
 
-<div class="container py-4">
-
-    <p class="fs-4 text-secondary text-center">
+<div class="card highlight-rl">
+    <p>
       House Price Prediction is a Machine Learning use case focused on estimating
       the value of a property based on its characteristics.
     </p>
+</div>
 
-    <!-- SYSTEM FLOW EN CARDS -->
-    <h4 class="text-center text-info mb-4">System Flow</h4>
+<h2>System Flow</h2>
 
-    <div class="row g-4 text-center">
-        <div class="col-md-3">
-            <div class="card bg-dark border-warning h-100">
-                <div class="card-body">
-                    <h5 class="card-title text-warning">Property Data</h5>
-                </div>
-            </div>
-        </div>
+<div class="concept-box">
+  <div class="text-warning">
+    <strong>Property Data</strong><br><small>Size, location, rooms, age</small>
+  </div>
+  <div class="text-primary">
+    <strong>Model</strong><br><small>Learns from historical data</small>
+  </div>
+  <div class="text-success">
+    <strong>Prediction</strong><br><small>Estimates property price</small>
+  </div>
+  <div class="text-danger">
+    <strong>Decision</strong><br><small>Helps buyers & sellers</small>
+  </div>
+</div>
 
-        <div class="col-md-3">
-            <div class="card bg-dark border-primary h-100">
-                <div class="card-body">
-                </div>
-            </div>
-        </div>
+<ul style="list-style-position: inside;">
+  <li><strong>Property Data:</strong> Information such as size, location, number of rooms, and age.</li>
+  <li><strong>Model:</strong> Learns patterns from historical housing data.</li>
+  <li><strong>Prediction:</strong> Estimates the price of the property.</li>
+  <li><strong>Decision:</strong> Helps buyers and sellers make informed decisions.</li>
+</ul>
 
-        <div class="col-md-3">
-            <div class="card bg-dark border-success h-100">
-                <div class="card-body">
-                    <h5 class="card-title text-success">Prediction</h5>
-                </div>
-            </div>
-        </div>
+<h2>Critical Components</h2>
 
-        <div class="col-md-3">
-            <div class="card bg-dark border-danger h-100">
-                <div class="card-body">
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="concept-box">
+  <div class="text-warning">
+    <strong>Historical Data</strong><br><small>Past house prices & features</small>
+  </div>
+  <div class="text-primary">
+    <strong>Features</strong><br><small>Area, rooms, location, condition</small>
+  </div>
+  <div class="text-success">
+    <strong>Model</strong><br><small>Regression algorithms</small>
+  </div>
+  <div class="text-danger">
+    <strong>Output</strong><br><small>Predicted house price</small>
+  </div>
+</div>
 
-    <!-- LISTA -->
-    <ul class="mt-4">
-      <li><strong>Property Data:</strong> Information such as size, location, number of rooms, and age.</li>
-      <li><strong>Model:</strong> Learns patterns from historical housing data.</li>
-      <li><strong>Prediction:</strong> Estimates the price of the property.</li>
-      <li><strong>Decision:</strong> Helps buyers and sellers make informed decisions.</li>
-    </ul>
-
-    <!-- COMPONENTES -->
-    <h4 class="text-center text-info mt-5 mb-4">Critical Components</h4>
-
-    <div class="row g-4 text-center">
-        <div class="col-md-3">
-            <div class="card bg-dark border-warning h-100">
-                <div class="card-body">
-                    <h6 class="text-warning">Historical Data</h6>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card bg-dark border-primary h-100">
-                <div class="card-body">
-                    <h6 class="text-primary">Features</h6>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card bg-dark border-success h-100">
-                <div class="card-body">
-                    <h6 class="text-success">Model</h6>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card bg-dark border-danger h-100">
-                <div class="card-body">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <ul class="mt-4">
-      <li><strong>Historical Data:</strong> Past records of house prices and their characteristics.</li>
-      <li><strong>Features:</strong> Variables like area (m²), number of rooms, location, and condition.</li>
-      <li><strong>Model:</strong> Machine Learning algorithms (mainly regression models).</li>
-      <li><strong>Output:</strong> Predicted house price.</li>
-    </ul>
+<ul style="list-style-position: inside;">
+  <li><strong>Historical Data:</strong> Past records of house prices and their characteristics.</li>
+  <li><strong>Features:</strong> Variables like area (m²), number of rooms, location, and condition.</li>
+  <li><strong>Model:</strong> Machine Learning algorithms (mainly regression models).</li>
+  <li><strong>Output:</strong> Predicted house price.</li>
+</ul>
 
     <!-- EJEMPLO -->
-    <h3 class="text-center text-success mt-5">Example</h3>
-    <p class="fs-5 text-secondary text-center">
-      If a house has a large area and is in a good location, the model predicts a higher price.
-    </p>
+    <h2>Example</h2>
+
+    <div class="alert alert-info">
+      <strong>Case Study:</strong> If a house has a large area and is in a good location, the model predicts a higher price.
+    </div>
 
     <!-- CONTEXTO -->
-    <h4 class="text-center text-info mt-4">Context: Type of Learning</h4>
-    <ul>
+    <h2>Context: Type of Learning</h2>
+    
+    <ul style="list-style-position: inside;">
         <li><strong>Supervised Learning:</strong> Uses labeled data (house features and price).</li>
         <li><strong>Regression:</strong> Predicts continuous values like prices.</li>
     </ul>
 
     <!-- APLICACIONES -->
-    <h3 class="text-center text-success mt-5">Applications</h3>
-    <p class="fs-5 text-secondary text-center">
+    <h2>Applications</h2>
+    
+    <p>
       Used in real estate platforms, agencies, and investment analysis.
     </p>
 
     <!-- FRASE -->
-    <h4 class="text-center mt-4">
-        <small class="text-warning">
-        “House price prediction uses machine learning to estimate property values.”
-        </small>
-    </h4>
+    <div class="alert alert-warning">
+      <strong>Key Insight:</strong> <em>"House price prediction uses machine learning to estimate property values."</em>
+    </div>
 
     <!-- BOTONES -->
-    <div class="text-center mt-5">
+    <div class="text-center" style="margin-top: 40px; margin-bottom: 40px;">
         <button onclick="window.location.href='/'" class="btn btn-success mx-2">Back home</button>
-        <button onclick="window.location.href='/thirdPage'" class="btn btn-warning mx-2">Previous page</button>
-        <button onclick="window.location.href='/linearRegresion'" class="btn btn-danger mx-2">Next page</button>
+        <button onclick="window.location.href='/thirdPage'" class="btn btn-secondary mx-2">Previous page</button>
+        <button onclick="window.location.href='/supervicedLearning'" class="btn mx-2" style="background: linear-gradient(135deg, var(--danger) 0%, #c0392b 100%); color: white; padding: 12px 24px; border-radius: 8px; border: none; cursor: pointer;">Next page</button>
     </div>
 
 </div>

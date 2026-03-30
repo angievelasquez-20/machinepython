@@ -3,30 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>linear regression to predictGrades</title>
+    <title>Linear Regression - Grade Predictor</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 </head>
-<body>
-    <h1> Linear Regression : Calculate Grade Depends on study</h1>
-    <form method="post">
-        <label for ="hours"> Study Hours </label>
-        <input type ="number" name="hours" required>
-        <button type="submit">Predict</button>
+<body class="container py-5">
 
-    </form>
-     {% if result is not none %}
-     <h2> Estimated Grade: {{result}}</h2>
-     {% endif %}
-     {% if plot_url %}
-     <img src="{{ url_for('static', filename=plot_url) }}" alt="Regression Plot" class="img-fluid">
-     {% endif %}
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <header class="text-center mb-5">
+                <h1 class="display-4">Linear Regression</h1>
+                <p class="lead">Predicting Academic Success based on Study Hours</p>
+            </header>
 
-</div>
-    <button onclick="window.location.href='/'" class="btn btn-primary">Back home</button>
-    <button onclick="window.location.href='/secondPage'" class="btn btn-primary">previous page</button>
-    <button onclick="window.location.href='/logisticRegression'" class="btn btn-secondary">Next page</button>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script> 
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Predict your Grade</h5>
+                    <form method="post" class="row g-3 align-items-center">
+                        <div class="col-auto">
+                            <label for="hours" class="col-form-label">Study Hours:</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="number" name="hours" class="form-control" required step="0.1" placeholder="e.g. 5.5">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-success">Predict Result</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
 
+            {% if result is not none %}
+            <div class="alert alert-info text-center shadow-sm">
+                <h2 class="mb-0">Estimated Grade: <strong>{{result}}</strong></h2>
+            </div>
+            {% endif %}
+
+            {% if plot_url %}
+            <div class="card shadow-sm mb-5">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Data Visualization</h5>
+                    <img src="{{ url_for('static', filename=plot_url) }}" alt="Regression Plot" class="img-fluid rounded border">
+                    <p class="text-muted mt-2 small">The line shows the trend calculated by the model.</p>
+                </div>
+            </div>
+            {% endif %}
+
+            <hr class="my-5">
+            
+            <section class="mt-4">
+                <h3>What is Linear Regression?</h3>
+                <p>Linear regression is a statistical method that models the relationship between a <strong>dependent variable</strong> (in this case, your Grade) and one or more <strong>independent variables</strong> (Study Hours).</p>
+                
+                <div class="card bg-light border-0 p-3 mb-4">
+                    <p class="mb-0 text-center font-monospace">
+                        Equation: y = mx + b
+                    </p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>How it works:</h5>
+                        <ul>
+                            <li><strong>m (Slope):</strong> Represents how much the grade increases for every extra hour of study.</li>
+                            <li><strong>b (Intercept):</strong> The predicted grade if you study 0 hours.</li>
+                            <li><strong>y:</strong> The result we want to find (The Grade).</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <blockquote class="blockquote small border-start ps-3 mt-2">
+                            "The goal is to find the line that minimizes the distance between all data points and the line itself."
+                        </blockquote>
+                    </div>
+                </div>
+            </section>
+
+            <nav class="mt-5 pt-3 border-top d-flex justify-content-between">
+                <div>
+                    <button onclick="window.location.href='/'" class="btn btn-outline-dark btn-sm">Back Home</button>
+                    <button onclick="window.location.href='/fourthPage'" class="btn btn-outline-primary btn-sm">Previous Page</button>
+                </div>
+                <button onclick="window.location.href='/linearRegresionPrices'" class="btn btn-secondary shadow-sm">Next: Logistic Regression &rarr;</button>
+            </nav>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

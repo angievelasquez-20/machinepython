@@ -6,37 +6,99 @@
     <title>Logistic Regression to Predict Purchase</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
-
 </head>
-<body>
-    <h1>Logistic Regression: Predict Purchase</h1>
-    <form method="post">
-        <label for="age">Age</label>
-        <input type="number" name="age" required><br>
-        <label for="income">Income</label>
-        <input type="number" name="income" required><br>
-        <label for="visits">Visits</label>
-        <input type="number" name="visits" required><br>
-        <label for="time">Time</label>
-        <input type="number" name="time" required><br>
-        <label for="purchases">Purchases</label>
-        <input type="number" name="purchases" required><br>
-        <label for="discount">Discount</label>
-        <input type="number" name="discount" required><br>
-        <button type="submit">Predict</button>
-    </form>
-    {% if result is not none %}
-    <h2>Prediction: {{ result }}</h2>
-    {% endif %}
-    {% if plot_url %}
-    <img src="{{ url_for('static', filename=plot_url) }}" alt="Logistic Regression Plot" class="img-fluid">
-    {% endif %}
+<body class="container py-5">
 
-</div>
-    <button onclick="window.location.href='/'" class="btn btn-primary">Back home</button>
-    <button onclick="window.location.href='/linearRegresion'" class="btn btn-primary">previous page</button>
-    <button onclick="window.location.href='/'" class="btn btn-secondary">Next page</button>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script> 
-    
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <h1 class="text-center mb-4">Logistic Regression: Predict Purchase Behavior</h1>
+            
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="card shadow-sm p-4">
+                        <h4 class="card-title mb-3">Customer Data</h4>
+                        <form method="post">
+                            <div class="mb-2">
+                                <label class="form-label">Age</label>
+                                <input type="number" name="age" class="form-control form-control-sm" min="0" required>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Income</label>
+                                <input type="number" name="income" class="form-control form-control-sm" min="0" required>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Visits</label>
+                                <input type="number" name="visits" class="form-control form-control-sm" min="0" required>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Time on Site</label>
+                                <input type="number" name="time" class="form-control form-control-sm" min="0" required>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Previous Purchases</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="purchases" id="purchases0" value="0" required>
+                                    <label class="form-check-label" for="purchases0">0 (No)</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="purchases" id="purchases1" value="1" required>
+                                    <label class="form-check-label" for="purchases1">1 (Yes)</label>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Discount Applied</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="discount" id="discount0" value="0" required>
+                                    <label class="form-check-label" for="discount0">0 (No)</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="discount" id="discount1" value="1" required>
+                                    <label class="form-check-label" for="discount1">1 (Yes)</label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success w-100">Predict Probability</button>
+                        </form>
+                    </div>
+
+                    {% if result is not none %}
+                    <div class="alert alert-info mt-4 text-center">
+                        <h5>Result: <span class="badge bg-primary">{{ result }}</span></h5>
+                        <small>Probability of purchase based on inputs.</small>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="col-md-7">
+                    {% if plot_url %}
+                    <div class="text-center mb-4">
+                        <img src="{{ url_for('static', filename=plot_url) }}" alt="Logistic Regression Plot" class="img-fluid rounded shadow shadow-sm">
+                    </div>
+                    {% endif %}
+
+                    <div class="theory-section shadow-sm">
+                        <h3>How Logistic Regression works</h3>
+                        <p>Unlike Linear Regression which predicts a continuous number, <strong>Logistic Regression</strong> predicts the probability of a categorical outcome (Yes/No, 0 or 1).</p>
+                        
+                        <h5>The Sigmoid Function</h5>
+                        <p>The model uses the <strong>Sigmoid function</strong> to map any real-valued number into a value between 0 and 1:</p>
+                        <div class="formula">
+                            P(y=1) = \frac{1}{1 + e^{-(z)}}
+                        </div>
+                        <p class="mt-2 small">Where z is a linear combination of the input features (age, income, etc.).</p>
+                        <h5>Interpreting the Output</h5>
+                        <p>The output is a probability. If the probability is above a certain threshold (commonly 0.5), we classify the outcome as "Yes" (the customer will purchase). Otherwise, it's classified as "No".</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <div class="mt-4 d-flex justify-content-between">
+        <button onclick="window.location.href='/'" class="btn btn-primary">Home</button>
+        <button onclick="window.location.href='/linearRegresionPrices'" class="btn btn-primary">Previous page</button>
+        <button onclick="window.location.href='/logisticmodel'" class="btn btn-secondary">Next page</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
