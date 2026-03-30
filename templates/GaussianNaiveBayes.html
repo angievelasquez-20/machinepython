@@ -3,76 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaussian Naive Bayes - Quick Guide</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Gaussian Naive Bayes - Machine Learning</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
 
-<header class="text-center py-4 bg-dark text-white rounded">
-    <h1>Gaussian Naive Bayes</h1>
-    <p>Probabilistic classification for continuous data</p>
+<header>
+    <h1>Gaussian Naive Bayes Classifier</h1>
 </header>
 
-<section class="container my-4">
-    <h2>What is it?</h2>
-    <p><strong>Gaussian Naive Bayes</strong> is a variant of the Naive Bayes algorithm designed to handle continuous variables. It is based on Bayes' Theorem and assumes that the features for each class follow a <strong>normal distribution</strong> (or Gaussian distribution).</p>
-</section>
+<div class="card highlight-rl">
+    <p>
+      Gaussian Naive Bayes is a probabilistic machine learning algorithm based on Bayes' theorem
+      with a strong independence assumption between features. It assumes that all features follow
+      a Gaussian (normal) distribution and are independent of each other.
+    </p>
+</div>
 
-<section class="container my-4">
-    <h2>The Normality Assumption</h2>
-    <p>When working with continuous data (such as height, weight, or temperature), we cannot simply count frequencies. Instead, we calculate the probability using the probability density function of the normal distribution:</p>
-    
-    <div class="formula p-3 mb-3 bg-light border-start border-primary border-4 text-center font-italic">
-        P(x_i | y) = (1 / sqrt(2πσ²_y)) * exp(-(x_i - μ_y)² / 2σ²_y)
-    </div>
+<h2>What is Gaussian Naive Bayes?</h2>
 
-    <ul>
-        <li><strong>μ_y:</strong> The mean of the values in <code>x</code> for class <code>y</code>.</li>
-        <li><strong>σ²_y:</strong> The variance of the values in <code>x</code> for class <code>y</code>.</li>
-    </ul>
-</section>
+<p>
+  Gaussian Naive Bayes is a variant of the Naive Bayes algorithm designed to handle continuous variables. 
+  It is based on Bayes' Theorem and assumes that the features for each class follow a normal distribution (Gaussian distribution).
+</p>
 
-<section class="container my-4">
-    <h2>Pros and Cons</h2>
-    <table class="table table-striped">
-        <thead class="table-dark">
-            <tr>
-                <th>Pros</th>
-                <th>Cons</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Extremely fast performance.</td>
-                <td>Assumes independence between features (rare in real life).</td>
-            </tr>
-            <tr>
-                <td>Works well even with small datasets.</td>
-                <td>Performance drops if data is not truly Gaussian.</td>
-            </tr>
-            <tr>
-                <td>Easy to implement and tune.</td>
-                <td>Highly sensitive to outliers.</td>
-            </tr>
-        </tbody>
-    </table>
-</section>
+<h2>The Normality Assumption</h2>
 
-<section class="container my-4">
-    <h2>Common Use Cases</h2>
-    <ul>
-        <li>Text classification (when converted to continuous values like TF-IDF).</li>
-        <li>Initial medical diagnosis based on clinical metrics.</li>
-        <li>Spam detection and content filtering.</li>
-        <li>Basic recommendation systems.</li>
-    </ul>
-</section>
+<p>
+  When working with continuous data (such as height, weight, or temperature), we calculate the probability 
+  using the probability density function of the normal distribution:
+</p>
 
-<div class="mt-4 d-flex justify-content-between">
-    <button onclick="window.location.href='/'" class="btn btn-primary">Home</button>
-    <button onclick="window.location.href='/logisticmodel'" class="btn btn-primary">Previous page</button>
-    <button onclick="window.location.href='/'" class="btn btn-secondary">Next page</button>
+<div class="formula">
+    P(x_i | y) = (1 / √(2πσ²_y)) × e^(-(x_i - μ_y)² / 2σ²_y)
+</div>
 
+<ul style="list-style-position: inside;">
+    <li><strong>μ_y:</strong> The mean of the values in x for class y.</li>
+    <li><strong>σ²_y:</strong> The variance of the values in x for class y.</li>
+    <li><strong>x_i:</strong> The feature value being evaluated.</li>
+    <li><strong>y:</strong> The class label.</li>
+</ul>
+
+<h2>How It Works</h2>
+
+<div class="concept-box">
+  <div class="text-warning">
+    <strong>Training Phase</strong><br><small>Calculate mean & variance</small>
+  </div>
+  <div class="text-primary">
+    <strong>Feature Analysis</strong><br><small>Compute statistics per class</small>
+  </div>
+  <div class="text-success">
+    <strong>Probability Calculation</strong><br><small>Apply Gaussian distribution</small>
+  </div>
+  <div class="text-danger">
+    <strong>Classification</strong><br><small>Choose highest probability</small>
+  </div>
+</div>
+
+<h2>Advantages</h2>
+
+<ul style="list-style-position: inside;">
+    <li><strong>Fast Performance:</strong> Extremely fast and efficient for classification tasks.</li>
+    <li><strong>Small Datasets:</strong> Works well even with small datasets.</li>
+    <li><strong>Easy Implementation:</strong> Simple to implement and tune.</li>
+    <li><strong>Probabilistic Output:</strong> Provides probability estimates for predictions.</li>
+</ul>
+
+<h2>Disadvantages</h2>
+
+<ul style="list-style-position: inside;">
+    <li><strong>Independence Assumption:</strong> Assumes independence between features (rare in reality).</li>
+    <li><strong>Distribution Assumption:</strong> Performance drops if data is not truly Gaussian.</li>
+    <li><strong>Outlier Sensitivity:</strong> Highly sensitive to outliers in the data.</li>
+    <li><strong>Zero Probability:</strong> May struggle with rare feature combinations.</li>
+</ul>
+
+<h2>Common Use Cases</h2>
+
+<ul style="list-style-position: inside;">
+    <li><strong>Text Classification:</strong> Spam detection and email filtering using word frequencies.</li>
+    <li><strong>Medical Diagnosis:</strong> Initial diagnosis based on clinical metrics and patient data.</li>
+    <li><strong>Sentiment Analysis:</strong> Determining positive, negative, or neutral sentiment in text.</li>
+    <li><strong>Document Categorization:</strong> Classifying documents into predefined categories.</li>
+</ul>
+
+<h2>Example Application</h2>
+
+<div class="alert alert-info">
+  <strong>Case Study:</strong> Classifying iris flowers into species based on sepal length, sepal width, 
+  petal length, and petal width using Gaussian Naive Bayes classifier.
+</div>
+
+<h2>Context: Type of Learning</h2>
+
+<ul style="list-style-position: inside;">
+    <li><strong>Supervised Learning:</strong> Requires labeled training data with known classes.</li>
+    <li><strong>Classification:</strong> Predicts discrete class labels, not continuous values.</li>
+    <li><strong>Probabilistic Model:</strong> Based on probability theory and Bayes' theorem.</li>
+</ul>
+
+<div class="alert alert-warning">
+  <strong>Key Insight:</strong> <em>"Despite its simplicity and strong assumptions, Gaussian Naive Bayes often performs surprisingly well in practice, especially for text classification and spam detection tasks."</em>
+</div>
+
+<div class="text-center" style="margin-top: 40px; margin-bottom: 40px;">
+    <button onclick="window.location.href='/'" class="btn btn-success mx-2">Back home</button>
+    <button onclick="window.location.href='/logisticmodel'" class="btn btn-secondary mx-2">Previous page</button>
+    <button onclick="window.location.href='/'" class="btn mx-2" style="background: linear-gradient(135deg, var(--danger) 0%, #c0392b 100%); color: white; padding: 12px 24px; border-radius: 8px; border: none; cursor: pointer;">Next page</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
