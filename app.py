@@ -1,4 +1,4 @@
-from flask import Flask , render_template, request
+from flask import Flask, render_template, request
 import LinearRegressionPrices as house_model
 import LinearRegression
 import LogisticRegression
