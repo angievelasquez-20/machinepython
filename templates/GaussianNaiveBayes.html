@@ -1,77 +1,124 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaussian Naive Bayes - Guía Rápida</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Gaussian Naive Bayes - Machine Learning</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
 
 <header>
-    <h1>Gaussian Naive Bayes</h1>
-    <p>Clasificación probabilística para datos continuos</p>
+    <h1>Gaussian Naive Bayes Classifier</h1>
 </header>
 
-<section>
-    <h2>¿Qué es?</h2>
-    <p>El <strong>Gaussian Naive Bayes</strong> es una variante del algoritmo Naive Bayes diseñada para tratar con variables continuas. Se basa en el Teorema de Bayes y asume que las características (features) de cada clase siguen una <strong>distribución normal</strong> (o Gaussiana).</p>
-</section>
+<div class="card highlight-rl">
+    <p>
+      Gaussian Naive Bayes is a probabilistic machine learning algorithm based on Bayes' theorem
+      with a strong independence assumption between features. It assumes that all features follow
+      a Gaussian (normal) distribution and are independent of each other.
+    </p>
+</div>
 
-<section>
-    <h2>La Suposición de Normalidad</h2>
-    <p>Cuando trabajamos con datos continuos (como la altura, el peso o la temperatura), no podemos simplemente contar frecuencias. En su lugar, calculamos la probabilidad usando la función de densidad de probabilidad de la distribución normal:</p>
-    
-    <div class="formula">
-        P(x_i | y) = (1 / sqrt(2πσ²_y)) * exp(-(x_i - μ_y)² / 2σ²_y)
-    </div>
+<h2>What is Gaussian Naive Bayes?</h2>
 
-    <ul>
-        <li><strong>μ_y:</strong> La media de los valores de <code>x</code> para la clase <code>y</code>.</li>
-        <li><strong>σ²_y:</strong> La varianza de los valores de <code>x</code> para la clase <code>y</code>.</li>
-    </ul>
-</section>
+<p>
+  Gaussian Naive Bayes is a variant of the Naive Bayes algorithm designed to handle continuous variables. 
+  It is based on Bayes' Theorem and assumes that the features for each class follow a normal distribution (Gaussian distribution).
+</p>
 
-<section>
-    <h2>Ventajas y Desventajas</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Ventajas</th>
-                <th>Desventajas</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Es extremadamente rápido.</td>
-                <td>Asume independencia entre variables (raro en la vida real).</td>
-            </tr>
-            <tr>
-                <td>Funciona bien con pocos datos.</td>
-                <td>Si los datos no son Gaussianos, el rendimiento baja.</td>
-            </tr>
-            <tr>
-                <td>Fácil de implementar.</td>
-                <td>Sensible a valores atípicos (outliers).</td>
-            </tr>
-        </tbody>
-    </table>
-</section>
+<h2>The Normality Assumption</h2>
 
-<section>
-    <h2>Casos de Uso Comunes</h2>
-    <ul>
-        <li>Clasificación de texto (si se transforman a valores continuos como TF-IDF).</li>
-        <li>Diagnóstico médico inicial.</li>
-        <li>Detección de spam y filtrado de contenido.</li>
-        <li>Sistemas de recomendación básicos.</li>
-    </ul>
-</section>
+<p>
+  When working with continuous data (such as height, weight, or temperature), we calculate the probability 
+  using the probability density function of the normal distribution:
+</p>
 
-<footer>
-    <p style="text-align: center; font-size: 0.8em; color: #777;">Generado para fines educativos sobre Machine Learning.</p>
-</footer>
+<div class="formula">
+    P(x_i | y) = (1 / √(2πσ²_y)) × e^(-(x_i - μ_y)² / 2σ²_y)
+</div>
 
+<ul style="list-style-position: inside;">
+    <li><strong>μ_y:</strong> The mean of the values in x for class y.</li>
+    <li><strong>σ²_y:</strong> The variance of the values in x for class y.</li>
+    <li><strong>x_i:</strong> The feature value being evaluated.</li>
+    <li><strong>y:</strong> The class label.</li>
+</ul>
+
+<h2>How It Works</h2>
+
+<div class="concept-box">
+  <div class="text-warning">
+    <strong>Training Phase</strong><br><small>Calculate mean & variance</small>
+  </div>
+  <div class="text-primary">
+    <strong>Feature Analysis</strong><br><small>Compute statistics per class</small>
+  </div>
+  <div class="text-success">
+    <strong>Probability Calculation</strong><br><small>Apply Gaussian distribution</small>
+  </div>
+  <div class="text-danger">
+    <strong>Classification</strong><br><small>Choose highest probability</small>
+  </div>
+</div>
+
+<h2>Advantages</h2>
+
+<ul style="list-style-position: inside;">
+    <li><strong>Fast Performance:</strong> Extremely fast and efficient for classification tasks.</li>
+    <li><strong>Small Datasets:</strong> Works well even with small datasets.</li>
+    <li><strong>Easy Implementation:</strong> Simple to implement and tune.</li>
+    <li><strong>Probabilistic Output:</strong> Provides probability estimates for predictions.</li>
+</ul>
+
+<h2>Disadvantages</h2>
+
+<ul style="list-style-position: inside;">
+    <li><strong>Independence Assumption:</strong> Assumes independence between features (rare in reality).</li>
+    <li><strong>Distribution Assumption:</strong> Performance drops if data is not truly Gaussian.</li>
+    <li><strong>Outlier Sensitivity:</strong> Highly sensitive to outliers in the data.</li>
+    <li><strong>Zero Probability:</strong> May struggle with rare feature combinations.</li>
+</ul>
+
+<h2>Common Use Cases</h2>
+
+<ul style="list-style-position: inside;">
+    <li><strong>Text Classification:</strong> Spam detection and email filtering using word frequencies.</li>
+    <li><strong>Medical Diagnosis:</strong> Initial diagnosis based on clinical metrics and patient data.</li>
+    <li><strong>Sentiment Analysis:</strong> Determining positive, negative, or neutral sentiment in text.</li>
+    <li><strong>Document Categorization:</strong> Classifying documents into predefined categories.</li>
+</ul>
+
+<h2>Example Application</h2>
+
+<div class="alert alert-info">
+  <strong>Case Study:</strong> Classifying iris flowers into species based on sepal length, sepal width, 
+  petal length, and petal width using Gaussian Naive Bayes classifier.
+</div>
+
+<h2>Context: Type of Learning</h2>
+
+<ul style="list-style-position: inside;">
+    <li><strong>Supervised Learning:</strong> Requires labeled training data with known classes.</li>
+    <li><strong>Classification:</strong> Predicts discrete class labels, not continuous values.</li>
+    <li><strong>Probabilistic Model:</strong> Based on probability theory and Bayes' theorem.</li>
+</ul>
+
+<div class="alert alert-warning">
+  <strong>Key Insight:</strong> <em>"Despite its simplicity and strong assumptions, Gaussian Naive Bayes often performs surprisingly well in practice, especially for text classification and spam detection tasks."</em>
+</div>
+
+<div class="text-center" style="margin-top: 40px; margin-bottom: 40px;">
+    <button onclick="window.location.href='/'" class="btn btn-success mx-2">Back home</button>
+    <button onclick="window.location.href='/logisticmodel'" class="btn btn-secondary mx-2">Previous page</button>
+    <button onclick="window.location.href='/'" class="btn mx-2" style="background: linear-gradient(135deg, var(--danger) 0%, #c0392b 100%); color: white; padding: 12px 24px; border-radius: 8px; border: none; cursor: pointer;">Next page</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

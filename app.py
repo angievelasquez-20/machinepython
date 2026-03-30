@@ -68,6 +68,10 @@ def predictPurchase():
 
     return render_template('LogisticRegression.html', result=calculateResult, plot_url=plot_url)
 
+@app.route('/NaiveBayes/')
+def naiveBayes():
+    return render_template('GaussianNaiveBayes.html')
+
 @app.route('/linearRegresionPrices/', methods=['GET', 'POST'])
 def calories():
     result = None
@@ -111,5 +115,4 @@ def logistic_page():
 
     return render_template('Logisticmodel.html',result=result,probability=probability,prob_percent=prob_percent,
         accuracy=accuracy,accuracy_percent=accuracy_percent,report=report)
-
 
