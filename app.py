@@ -3,6 +3,7 @@ import LinearRegressionPrices as house_model
 import LinearRegression
 import LogisticRegression
 import LogisticRegression2 as LogisticRegression
+import Logisticmodel
 
 app = Flask(__name__)
 
