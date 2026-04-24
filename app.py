@@ -71,7 +71,7 @@ def predictPurchase():
 
     return render_template('LogisticRegression.html', result=calculateResult, plot_url=plot_url)
 
-@app.route('/NaiveBayes/')
+@app.route('/GaussianNaiveBayes')
 def naiveBayes():
     return render_template('GaussianNaiveBayes.html')
 
