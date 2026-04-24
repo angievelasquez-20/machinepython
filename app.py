@@ -158,9 +158,8 @@ def logistic_page():
 
 @app.route('/clustering')
 def clustering():
-    info=Clustering.applyClusteringKmeans()
-    return (info['results'])
-    return render_template('clustering.html', info=info)
+    info = Clustering.applyClusteringKmeans()
+    return render_template('clustering.html')
 
 
 if __name__ == '__main__':
