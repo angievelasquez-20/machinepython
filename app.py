@@ -1,9 +1,11 @@
 from flask import Flask, render_template, request
+from numpy import info
 import LinearRegressionPrices as house_model
 import LinearRegression
 import LogisticRegression
 import LogisticRegression2 as LogisticRegression
 import Logisticmodel
+import clustering as Clustering
 
 app = Flask(__name__)
 
@@ -153,6 +155,13 @@ def logistic_page():
 
     return render_template('Logisticmodel.html',result=result,probability=probability,prob_percent=prob_percent,
         accuracy=accuracy,accuracy_percent=accuracy_percent,report=report)
+
+@app.route('/clustering')
+def clustering():
+    info=Clustering.applyClusteringKmeans()
+    return (info['results'])
+    return render_template('clustering.html', info=info)
+
 
 if __name__ == '__main__':
     app.run(debug=True)    

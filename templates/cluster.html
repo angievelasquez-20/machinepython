@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Means Clustering Results</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='cluster.css')}}">
+</head>
+<body>
+
+<div class="container">
+    <h1 class="text-center mb-4">Segmentation Analysis (K-Means)</h1>
+
+    <div class="summary-cards" id="summaryContainer">
+        </div>
+
+    <div class="chart-container">
+        <canvas id="clusterChart"></canvas>
+    </div>
+
+    <div class="info-section">
+        <h2 class="h4">What is K-Means Clustering?</h2>
+        <p>
+            K-Means is an <strong>unsupervised machine learning</strong> algorithm that groups similar data points into clusters. 
+            Its main objective is to minimize the distance between data points and the center of their assigned group (the centroid).
+        </p>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h3 class="h5">How it works</h3>
+                <ul class="small">
+                    <li><strong>Initialization:</strong> "K" random points are chosen as initial centroids.</li>
+                    <li><strong>Assignment:</strong> Each person is linked to the nearest centroid.</li>
+                    <li><strong>Update:</strong> Centroids move to the average position of all assigned points.</li>
+                    <li><strong>Convergence:</strong> This repeats until the groups are stable and no longer change.</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3 class="h5">Understanding your Clusters</h3>
+                <p class="small">In this analysis, the population was divided into 3 groups based on <strong>Age, Income, and Bills</strong>:</p>
+                <ul class="list-unstyled small">
+                    <li><span class="badge cluster-0">Cluster 0:</span> Young profiles with entry-level income/expenses.</li>
+                    <li><span class="badge cluster-1">Cluster 1:</span> High-income and high-spending senior profiles.</li>
+                    <li><span class="badge cluster-2">Cluster 2:</span> Mid-range income or transitional profiles.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="mt-5 h4">Segmentation Detail</h2>
+    <div class="table-responsive">
+        <table class="table table-hover mt-3">
+            <thead class="table-light">
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Income ($)</th>
+                    <th>Bills ($)</th>
+                    <th>Cluster</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    // Data from Python function (Simulated as JSON)
+    const dataFromPython = {
+        "results": [
+            {"name": "Ana", "age": 22, "income": 1200, "bills": 300, "cluster": 0},
+            {"name": "Luis", "age": 25, "income": 1500, "bills": 350, "cluster": 0},
+            {"name": "Carlos", "age": 23, "income": 1300, "bills": 280, "cluster": 0},
+            {"name": "Marta", "age": 45, "income": 4000, "bills": 1200, "cluster": 1},
+            {"name": "Sofía", "age": 50, "income": 4200, "bills": 1400, "cluster": 1},
+            {"name": "Jorge", "age": 47, "income": 3900, "bills": 1100, "cluster": 1},
+            {"name": "Elena", "age": 31, "income": 2500, "bills": 700, "cluster": 2},
+            {"name": "Pedro", "age": 33, "income": 2700, "bills": 750, "cluster": 2},
+            {"name": "Laura", "age": 29, "income": 2400, "bills": 680, "cluster": 2},
+            {"name": "Andrés", "age": 52, "income": 5000, "bills": 1600, "cluster": 1},
+            {"name": "Camila", "age": 21, "income": 1100, "bills": 250, "cluster": 0},
+            {"name": "Diego", "age": 38, "income": 3200, "bills": 900, "cluster": 2}
+        ],
+        "summaryClusters": {"0": 4, "1": 4, "2": 4}
+    };
+
+    // 1. Render Summary Cards
+    const summaryDiv = document.getElementById('summaryContainer');
+    Object.entries(dataFromPython.summaryClusters).forEach(([cluster, count]) => {
+        summaryDiv.innerHTML += `
+            <div class="card c${cluster} rounded shadow-sm">
+                <h3 class="h5">Cluster ${cluster}</h3>
+                <p class="m-0"><strong>${count}</strong> People</p>
+            </div>`;
+    });
+
+    // 2. Render Table
+    const tbody = document.getElementById('tableBody');
+    let rows = '';
+    dataFromPython.results.forEach(p => {
+        rows += `<tr>
+            <td>${p.name}</td>
+            <td>${p.age}</td>
+            <td>$${p.income.toLocaleString()}</td>
+            <td>$${p.bills.toLocaleString()}</td>
+            <td><span class="badge cluster-${p.cluster}">Group ${p.cluster}</span></td>
+        </tr>`;
+    });
+    tbody.innerHTML = rows;
+
+    // 3. Render Scatter Plot
+    const ctx = document.getElementById('clusterChart').getContext('2d');
+    const colors = ['#e74c3c', '#2ecc71', '#f1c40f'];
+
+    const datasets = [0, 1, 2].map(c => ({
+        label: `Cluster ${c}`,
+        data: dataFromPython.results
+            .filter(p => p.cluster === c)
+            .map(p => ({ x: p.income, y: p.bills })),
+        backgroundColor: colors[c],
+        borderColor: colors[c],
+        borderWidth: 2,
+        pointRadius: 6
+    }));
+
+    new Chart(ctx, {
+        type: 'scatter',
+        data: { datasets },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { position: 'top' },
+                title: { display: true, text: 'Income vs Monthly Bills Distribution' }
+            },
+            scales: {
+                x: { title: { display: true, text: 'Monthly Income ($)' } },
+                y: { title: { display: true, text: 'Monthly Bills ($)' } }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
