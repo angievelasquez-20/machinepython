@@ -5,6 +5,7 @@ import LinearRegression
 import LogisticRegression
 import LogisticRegression2 as LogisticRegression
 import Logisticmodel
+import NaiveBayesModel as nb
 import clustering as Clustering
 
 app = Flask(__name__)
@@ -74,6 +75,36 @@ def predictPurchase():
 @app.route('/GaussianNaiveBayes')
 def naiveBayes():
     return render_template('GaussianNaiveBayes.html')
+
+@app.route('/GaussianNaiveBayes2', methods=['GET', 'POST'])
+def naive_bayes_app():
+
+    result = None
+    prob_percent = None
+    accuracy = None
+    accuracy_percent = None
+    report = None
+
+    if request.method == 'POST':
+        glucose = float(request.form['glucose'])
+        pressure = float(request.form['pressure'])
+
+        prediction, probability = nb.predict(glucose, pressure)
+
+        result = "Diabetic" if prediction == 1 else "Not Diabetic"
+        prob_percent = min(round(probability * 100, 2), 99.9)
+
+        accuracy, report = nb.generate_metrics()
+        accuracy_percent = round(accuracy * 100, 2)
+
+    return render_template(
+        'GaussianNaiveBayes2.html',
+        result=result,
+        prob_percent=prob_percent,
+        accuracy=accuracy,
+        accuracy_percent=accuracy_percent,
+        report=report
+    )
 
 @app.route('/linearRegresionPrices/', methods=['GET', 'POST'])
 def calories():
