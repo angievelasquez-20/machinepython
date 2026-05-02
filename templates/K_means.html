@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Means Clustering - Customer Segmentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body class="container py-5">
+
+<div class="row justify-content-center">
+    <div class="col-md-11">
+        <h1 class="text-center mb-4">K-Means Clustering: Customer Segmentation</h1>
+
+        <div class="row">
+
+            <!-- LEFT SIDE -->
+            <div class="col-md-5">
+                <div class="card shadow-sm p-4">
+                    <h4 class="card-title mb-3">Clustering Execution</h4>
+
+                    <form method="post">
+                        <div class="mb-3">
+                            <label class="form-label">Number of Clusters (k)</label>
+                            <input type="number" name="k" class="form-control form-control-sm" value="3" min="2" max="10" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100">
+                            Run Clustering
+                        </button>
+                    </form>
+                </div>
+
+                {% if summaryClusters %}
+                <div class="card mt-4 p-3 shadow-sm">
+                    <h5 class="text-center">Cluster Summary</h5>
+                    <ul class="list-group">
+                        {% for key, value in summaryClusters.items() %}
+                            <li class="list-group-item d-flex justify-content-between">
+                                Cluster {{ key }}
+                                <span class="badge bg-primary">{{ value }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+
+                {% if centers %}
+                <div class="card mt-4 p-3 shadow-sm">
+                    <h5 class="text-center">Centroids</h5>
+                    <ul class="list-group">
+                        {% for c in centers %}
+                            <li class="list-group-item">
+                                Age: {{ "%.2f"|format(c[0]) }},
+                                Credit Limit: {{ "%.2f"|format(c[1]) }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- RIGHT SIDE -->
+            <div class="col-md-7">
+
+                {% if plot_url %}
+                <div class="card shadow-sm p-3 mb-4">
+                    <h5 class="text-center">Clustering Visualization</h5>
+                    <img src="{{ url_for('static', filename=plot_url) }}" class="img-fluid">
+                </div>
+                {% endif %}
+
+                <div class="theory-section shadow-sm p-3">
+                    <h3>Unsupervised Learning - K-Means</h3>
+
+                    <p>
+                        K-Means is an unsupervised learning algorithm used to group data into clusters
+                        based on similarity.
+                    </p>
+
+                    <h5>How it works</h5>
+                    <ul>
+                        <li>Select number of clusters (k)</li>
+                        <li>Initialize centroids</li>
+                        <li>Assign points to nearest centroid</li>
+                        <li>Update centroids</li>
+                        <li>Repeat until convergence</li>
+                    </ul>
+
+                    <h5>Dataset Description</h5>
+                    <p>
+                        The dataset represents customers based on:
+                    </p>
+                    <ul>
+                        <li><strong>Age</strong>: Customer age</li>
+                        <li><strong>Credit Limit</strong>: Financial capacity</li>
+                    </ul>
+
+                    <h5>Interpretation</h5>
+                    <ul>
+                        <li>Cluster 0 → Low credit customers</li>
+                        <li>Cluster 1 → Medium credit customers</li>
+                        <li>Cluster 2 → High credit customers</li>
+                    </ul>
+
+                    <p>
+                        The algorithm groups customers with similar financial profiles, helping identify
+                        different segments.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- TABLE -->
+        {% if results %}
+        <div class="mt-5">
+            <h3 class="text-center mb-3">Clustering Results</h3>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped text-center">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Age</th>
+                            <th>Credit Limit</th>
+                            <th>Cluster</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in results[:50] %}
+                        <tr>
+                            <td>{{ row.Age }}</td>
+                            <td>{{ row.Credit_Limit }}</td>
+                            <td>
+                                <span class="badge bg-success">
+                                    {{ row.cluster }}
+                                </span>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <small class="text-muted">Showing first 50 records</small>
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="text-center mt-5">
+            <button onclick="window.location.href='/'" class="btn btn-primary mx-2">Back home</button>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
