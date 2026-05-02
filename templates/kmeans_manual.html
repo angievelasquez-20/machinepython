@@ -46,9 +46,9 @@
     <div class="card p-4 bg-white section">
         <h3>Dataset Description</h3>
         <p>
-            The dataset consists of 100 records with two numerical features:
-            <strong>Revenues</strong> and <strong>Profits</strong>.
-            These variables represent financial performance and allow us to group similar entities.
+            The dataset contains customer information with two main features: Age and Annual Income.
+            Each row represents a data point that will be used in the clustering process.
+            These variables were selected because they allow clear grouping patterns when applying K-Means.
         </p>
 
         <div class="img-box mt-3 text-center">
@@ -60,15 +60,21 @@
     <div class="card p-4 bg-white section">
         <h3>Iteration 1</h3>
         <p>
-            Three initial centroids were selected manually. 
-            Then, the Euclidean distance between each data point and the centroids was calculated.
-            Each point was assigned to the nearest cluster.
+            In this iteration, the Euclidean distance between each data point and the three centroids (C1, C2, C3) is calculated.
+            Each point is assigned to the cluster with the minimum distance.
+            This step defines the first grouping of the dataset.
         </p>
 
         <div class="img-box mt-3 text-center">
             <img src="{{ url_for('static', filename='iteration1.png') }}" class="img-fluid">
             <p class="mt-2 text-dark">Distance calculations and cluster assignment</p>
         </div>
+
+        <div class="img-box mt-3 text-center">
+            <img src="{{ url_for('static', filename='Iteration1Graph.png') }}" class="img-fluid">
+            <p class="mt-2 text-dark">Iteration 1 graph</p>
+        </div>
+        
     </div>
 
     <div class="card p-4 bg-white section">
@@ -82,6 +88,12 @@
             <img src="{{ url_for('static', filename='iteration2.png') }}" class="img-fluid">
             <p class="mt-2 text-dark">Updated clusters after recalculation</p>
         </div>
+
+        <div class="img-box mt-3 text-center">
+            <img src="{{ url_for('static', filename='Iteration2Graph.png') }}" class="img-fluid">
+            <p class="mt-2 text-dark">Iteration 2 graph</p>
+        </div>
+
     </div>
 
     <div class="card p-4 bg-white section">
@@ -95,6 +107,12 @@
             <img src="{{ url_for('static', filename='iteration3.png') }}" class="img-fluid">
             <p class="mt-2 text-dark">Final clustering result</p>
         </div>
+
+        <div class="img-box mt-3 text-center">
+            <img src="{{ url_for('static', filename='Iteration3Graph.png') }}" class="img-fluid">
+            <p class="mt-2 text-dark">Iteration 3 graph</p>
+        </div>
+
     </div>
 
     <div class="card p-4 bg-white section">
