@@ -161,6 +161,10 @@ def clustering():
     info = Clustering.applyClusteringKmeans()
     return render_template('clustering.html')
 
+@app.route('/kmeans_manual')
+def kmeans_manual():
+    return render_template('kmeans_manual.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)    
