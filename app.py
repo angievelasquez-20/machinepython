@@ -191,7 +191,7 @@ def logistic_page():
 
 @app.route('/clustering')
 def clustering():
-    info = Clustering.applyClusteringKmeans()
+    info = Clustering.applyClusteringKmeans(3)
     return render_template('clustering.html')
 
 @app.route('/kmeans_manual')
