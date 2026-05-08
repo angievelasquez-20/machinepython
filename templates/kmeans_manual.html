@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>K-Means Manual Exercise</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body{
+            background: linear-gradient(135deg,#380505,#b2774f);
+            color:white;
+        }
+
+        .card{
+            border-radius:15px;
+        }
+
+        .section{
+            margin-top:40px;
+        }
+
+        .img-box{
+            background:white;
+            padding:10px;
+            border-radius:10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container mt-4">
+
+    <h1 class="text-center mb-4">K-Means Manual Simulation</h1>
+
+    <div class="card p-4 bg-white section">
+        <h3>Introduction</h3>
+        <p>
+            In this activity, we implemented the K-Means clustering algorithm manually using Excel. 
+            The objective was to understand how clustering works through distance calculations, 
+            centroid updates, and variance reduction across iterations.
+        </p>
+    </div>
+
+    <div class="card p-4 bg-white section">
+        <h3>Dataset Description</h3>
+        <p>
+            The dataset contains customer information with two main features: Age and Annual Income.
+            Each row represents a data point that will be used in the clustering process.
+            These variables were selected because they allow clear grouping patterns when applying K-Means.
+        </p>
+
+        <div class="img-box mt-3 text-center">
+            <img src="{{ url_for('static', filename='dataset.png') }}" class="img-fluid">
+            <p class="mt-2 text-dark">Dataset in Excel</p>
+        </div>
+    </div>
+
+    <div class="card p-4 bg-white section">
+        <h3>Iteration 1</h3>
+        <p>
+            In this iteration, the Euclidean distance between each data point and the three centroids (C1, C2, C3) is calculated.
+            Each point is assigned to the cluster with the minimum distance.
+            This step defines the first grouping of the dataset.
+        </p>
+
+        <div class="img-box mt-3 text-center">
+            <img src="{{ url_for('static', filename='iteration1.png') }}" class="img-fluid">
+            <p class="mt-2 text-dark">Distance calculations and cluster assignment</p>
+        </div>
+
+        <div class="img-box mt-3 text-center">
+            <img src="{{ url_for('static', filename='Iteration1Graph.png') }}" class="img-fluid">
+            <p class="mt-2 text-dark">Iteration 1 graph</p>
+        </div>
+        
+    </div>
+
+    <div class="card p-4 bg-white section">
+        <h3>Iteration 2</h3>
+        <p>
+            New centroids were calculated as the average of each cluster.
+            Using these updated centroids, distances were recalculated and clusters reassigned.
+        </p>
+
+        <div class="img-box mt-3 text-center">
+            <img src="{{ url_for('static', filename='iteration2.png') }}" class="img-fluid">
+            <p class="mt-2 text-dark">Updated clusters after recalculation</p>
+        </div>
+
+        <div class="img-box mt-3 text-center">
+            <img src="{{ url_for('static', filename='Iteration2Graph.png') }}" class="img-fluid">
+            <p class="mt-2 text-dark">Iteration 2 graph</p>
+        </div>
+
+    </div>
+
+    <div class="card p-4 bg-white section">
+        <h3>Iteration 3</h3>
+        <p>
+            The process was repeated once more. At this stage, the clusters became more stable, 
+            indicating convergence of the K-Means algorithm.
+        </p>
+
+        <div class="img-box mt-3 text-center">
+            <img src="{{ url_for('static', filename='iteration3.png') }}" class="img-fluid">
+            <p class="mt-2 text-dark">Final clustering result</p>
+        </div>
+
+        <div class="img-box mt-3 text-center">
+            <img src="{{ url_for('static', filename='Iteration3Graph.png') }}" class="img-fluid">
+            <p class="mt-2 text-dark">Iteration 3 graph</p>
+        </div>
+
+    </div>
+
+    <div class="card p-4 bg-white section">
+        <h3>Variance Analysis</h3>
+        <p>
+            The variance was calculated for each iteration. 
+            A decrease in variance indicates that the data points are getting closer to their respective centroids.
+        </p>
+
+        <div class="img-box mt-3 text-center">
+            <img src="{{ url_for('static', filename='variance.png') }}" class="img-fluid">
+            <p class="mt-2 text-dark">Variance reduction graph</p>
+        </div>
+    </div>
+
+    <div class="card p-4 bg-white section">
+        <h3>Conclusion</h3>
+        <p>
+            The K-Means algorithm successfully grouped the dataset into clusters. 
+            Through iterative refinement, the model reduced variance and improved cluster compactness.
+            This demonstrates how unsupervised learning can identify hidden patterns in data.
+        </p>
+    </div>
+
+</div>
+
+</body>
+</html>
