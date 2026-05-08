@@ -8,6 +8,7 @@ import Logisticmodel
 import NaiveBayesModel as nb
 import clustering as Clustering
 import K_means as Clustering
+import gunicorn
 
 app = Flask(__name__)
 
